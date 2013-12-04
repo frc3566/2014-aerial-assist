@@ -1,0 +1,3 @@
+low goal 29 wide 24 tall
+middle goal 54 wide 21 tall
+high goal 54 wide 12 tall
