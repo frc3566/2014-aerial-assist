@@ -1,0 +1,179 @@
+<head><version>2.48.20</version></head>
+<Axis_Internet_Camera>
+  <auto_exposure>FALSE</auto_exposure>
+  <auto_back_light>TRUE</auto_back_light>
+  <color_level_value>50</color_level_value>
+  <exposure_value>50</exposure_value>
+  <auto_white_balance>TRUE</auto_white_balance>
+  <compression_index>5</compression_index>
+  <sharpness_value>50</sharpness_value>
+  <ip_address>10.35.66.11</ip_address>
+  <password>3566</password>
+  <username>root</username>
+  <port>80</port>
+  <contrast_value>50</contrast_value>
+  <is_active>TRUE</is_active>
+  <brightness_value>50</brightness_value>
+</Axis_Internet_Camera>
+<Radial_Distortion>
+  <scale>1000.0</scale>
+  <coeff_c>0.0</coeff_c>
+  <coeff_d>0.0</coeff_d>
+  <center_x>0.5</center_x>
+  <crop_image>FALSE</crop_image>
+  <coeff_b>0.525</coeff_b>
+  <center_y>0.5</center_y>
+  <coeff_e>0.0</coeff_e>
+  <coeff_a>-1121</coeff_a>
+</Radial_Distortion>
+<Intensity>
+  <noise_threshold>20</noise_threshold>
+  <amount>-132</amount>
+</Intensity>
+<Contrast>
+  <auto_adjust>FALSE</auto_adjust>
+  <amount>-34</amount>
+</Contrast>
+<Adaptive_Threshold disabled>
+  <mean_offset>10</mean_offset>
+  <filter_size>30 </filter_size>
+  <min_threshold>30</min_threshold>
+  <channel_type>1</channel_type>
+  <max_threshold>210</max_threshold>
+</Adaptive_Threshold>
+<Color_Threshold>
+  <green_end>255</green_end>
+  <red_start>0</red_start>
+  <blue_end>0</blue_end>
+  <result_type>2</result_type>
+  <blue_start>0</blue_start>
+  <red_end>0</red_end>
+  <green_start>0</green_start>
+</Color_Threshold>
+<Blob_Replace>
+  <thickness>1</thickness>
+  <color_index>12</color_index>
+  <fill_shape>TRUE</fill_shape>
+  <order_array_on_x>FALSE</order_array_on_x>
+  <shape_index>15</shape_index>
+  <order_array_on_y>FALSE</order_array_on_y>
+</Blob_Replace>
+<Blob_Filter>
+  <filters>
+    <tab:5/>
+    <tab:2/>
+    <tab:4/>
+    <tab>
+      <filter>
+        <create_array>0</create_array>
+        <ratio>3.50000</ratio>
+        <count_threshold>0</count_threshold>
+        <weight_threshold>0.7</weight_threshold>
+        <invert_count>0</invert_count>
+        <filter_id>63</filter_id>
+        <invert_threshold>0</invert_threshold>
+      </filter>
+    </tab>
+    <tab:6/>
+    <tab:3/>
+  </filters>
+  <sort_array_on_y>FALSE</sort_array_on_y>
+  <largest_is_background>FALSE</largest_is_background>
+  <sort_array_on_x>FALSE</sort_array_on_x>
+  <show_weights>TRUE</show_weights>
+  <create_blob_array_variable>FALSE</create_blob_array_variable>
+</Blob_Filter>
+<Center_of_Gravity>
+  <show_coord>TRUE</show_coord>
+  <threshold>-1</threshold>
+  <display_as_annotation>FALSE</display_as_annotation>
+  <density>-1</density>
+  <size_index>5</size_index>
+  <show_cog>TRUE</show_cog>
+  <overlay_image>Current</overlay_image>
+  <box_size>3</box_size>
+  <shape_index>3</shape_index>
+  <connect_line>FALSE</connect_line>
+  <use_subpixel>FALSE</use_subpixel>
+  <color_index>6</color_index>
+  <show_box>TRUE</show_box>
+</Center_of_Gravity>
+<NetworkTables>
+  <port>1735</port>
+  <variable_type_index>2</variable_type_index>
+  <variables_to_send>/SmartDashboard/cogx
+/SmartDashboard/cogy</variables_to_send>
+  <filter_type_index>0</filter_type_index>
+  <hostname>10.35.66.2</hostname>
+</NetworkTables>
+<Display_Variables>
+  <display_as_annotation>FALSE</display_as_annotation>
+  <display_value_only>FALSE</display_value_only>
+  <font_color>white</font_color>
+  <dim_background>TRUE</dim_background>
+  <border_color>red</border_color>
+  <font_size>Normal (10pt)</font_size>
+  <northwest>COG_X
+COG_Y
+Distance
+</northwest>
+</Display_Variables>
+<Math>
+  <image2>Current</image2>
+  <function>5</function>
+  <divisor>1</divisor>
+  <image1>Source</image1>
+  <all_channels>TRUE</all_channels>
+  <bias>0</bias>
+</Math>
+<VBScript_Program>
+  <tab_size_index>1</tab_size_index>
+  <script>list = GetArrayVariable("BFR_COORDINATES")
+if isArray(list) then
+  if ubound(list) &gt; 0 then
+
+    targetPixelHeight = 0
+    targetSamples = 0
+
+    ' calibrated for an Axis camera
+    imageHeight = GetVariable("IMAGE_HEIGHT")
+    cameraFieldOfView = 47.5
+    ' specify the known height of the target (12 inches)
+    targetHeight = 12.0
+
+    ' grab list of coordinates from blob_replace
+    ' note the array is sorted by previous module in a specific order
+    righty = list(1)
+    rightyy = list(7)
+    lefty = list(3)
+    leftyy = list(5)
+
+    ' based on these two side lines get the center line height
+    ' the center line is used since we want to aim to the center
+    ' of the target. This also removes any perspective distortion
+    ' where the right or left size may be a couple inches closer
+    ' or further away from the camera
+    targetPixelHeight = ((lefty - leftyy) + (righty - rightyy)) / 2
+
+    ' we can use a known distance to determine FOV if we don't know it
+    ' measuredDistance = 10.0*12.0
+    ' write "Calculated FOV " _
+    '   (((atan((((targetHeight*imageHeight)/targetPixelHeight)/2) _
+    '   /measuredDistance)*2.0)*180.0)/3.14159) &amp; vbCRLF
+
+    ' determine distance in inches
+
+    cogy = GetVariable("COG_Y")
+    SetVariable "/SmartDashboard/cogy", cogy
+    cogx = GetVariable("COG_X")
+    SetVariable "/SmartDashboard/cogx", cogx
+  end if
+end if</script>
+  <source_mode>gui</source_mode>
+</VBScript_Program>
+<NetworkTables>
+  <variable_type_index>0</variable_type_index>
+  <filter_type_index>0</filter_type_index>
+  <hostname>10.35.66.9</hostname>
+  <port>1735</port>
+</NetworkTables>
