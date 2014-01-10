@@ -16,10 +16,14 @@ import org.usfirst.frc3566.Mule.Robot;
 import org.usfirst.frc3566.Mule.RobotMap;
 
 /**
+ * @param mag The magnitude of left joystick
+ * @param deg The degree of left joystick
  *
  */
 public class  Drive extends Command {
 
+    private double mag = 0;
+    private double deg = 0;
     public Drive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -35,8 +39,17 @@ public class  Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.driveTrainRobotDrive.mecanumDrive_Cartesian(-1*Robot.oi.leftJoystick.getX(), Robot.oi.leftJoystick.getY(), Robot.oi.getRightJoystick().getX(), 0);
-    }
+        /*
+         * Update mag and deg
+         */
+         mag = 0.75*Robot.oi.leftJoystick.getMagnitude();
+         deg = Robot.oi.leftJoystick.getDirectionDegrees();
+         /*
+          * Pass the parameters
+          *  RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(double magnitude, double degree, double rotation);
+          */
+        RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, 0.75*Robot.oi.leftJoystick.getZ()); //The mecanum drive function that pass the parameters to the drivetrain to make it run
+    }   
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
