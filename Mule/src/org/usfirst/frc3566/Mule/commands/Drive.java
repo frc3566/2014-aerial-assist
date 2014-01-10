@@ -24,6 +24,7 @@ public class  Drive extends Command {
 
     private double mag = 0;
     private double deg = 0;
+    private double rot = 0;
     public Drive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -43,12 +44,17 @@ public class  Drive extends Command {
          * Update mag and deg
          */
          mag = 0.75*Robot.oi.leftJoystick.getMagnitude();
-         deg = Robot.oi.leftJoystick.getDirectionDegrees();
+         deg = -1*Robot.oi.leftJoystick.getDirectionDegrees();
+         rot = 0.75*Robot.oi.leftJoystick.getZ();
          /*
           * Pass the parameters
           *  RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(double magnitude, double degree, double rotation);
           */
-        RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, 0.75*Robot.oi.rightJoystick.getZ()); //The mecanum drive function that pass the parameters to the drivetrain to make it run
+         
+        if(mag>.1||deg>.1||rot>.1){ 
+             RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, rot); //The mecanum drive function that pass the parameters to the drivetrain to make it run
+        }
+    
     }   
 
     // Make this return true when this Command no longer needs to run execute()
