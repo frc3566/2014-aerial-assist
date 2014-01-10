@@ -48,7 +48,7 @@ public class  Drive extends Command {
           * Pass the parameters
           *  RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(double magnitude, double degree, double rotation);
           */
-        RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, 0.75*Robot.oi.leftJoystick.getZ()); //The mecanum drive function that pass the parameters to the drivetrain to make it run
+        RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, 0.75*Robot.oi.rightJoystick.getZ()); //The mecanum drive function that pass the parameters to the drivetrain to make it run
     }   
 
     // Make this return true when this Command no longer needs to run execute()
