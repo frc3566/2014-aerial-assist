@@ -1,19 +1,19 @@
 Version 0.0.2
 
 ---
-Name: TestMule
+Name: Mule
 Base: Robot
 Children:
 - Name: Subsystems
   Base: Subsystems
   Children:
-  - Name: DriveSystem
+  - Name: DriveTrain
     Base: Subsystem
     Children:
     - Name: RobotDrive
-      Base: Robot Drive 2
+      Base: Robot Drive 4
       Children:
-      - Name: LeftWheel
+      - Name: LeftFrontWheel
         Base: Speed Controller
         Children: []
         Properties:
@@ -35,7 +35,7 @@ Children:
             name: Output Channel (PWM)
             validators: &id005 [PWMOutput]
             value: '1'
-      - Name: RightWheel
+      - Name: LeftRearWheel
         Base: Speed Controller
         Children: []
         Properties:
@@ -57,29 +57,89 @@ Children:
             name: Output Channel (PWM)
             validators: *id005
             value: '2'
+      - Name: RightFrontWheel
+        Base: Speed Controller
+        Children: []
+        Properties:
+          Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
+            choices: *id001
+            default: '1'
+            name: Output Module (Digital)
+            validators: *id002
+            value: '1'
+          Type: !!robotbuilder.data.properties.ChoicesProperty
+            choices: *id003
+            default: Victor
+            name: Type
+            validators: null
+            value: Talon
+          Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+            choices: *id004
+            default: '1'
+            name: Output Channel (PWM)
+            validators: *id005
+            value: '3'
+      - Name: RightRearWheel
+        Base: Speed Controller
+        Children: []
+        Properties:
+          Output Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
+            choices: *id001
+            default: '1'
+            name: Output Module (Digital)
+            validators: *id002
+            value: '1'
+          Type: !!robotbuilder.data.properties.ChoicesProperty
+            choices: *id003
+            default: Victor
+            name: Type
+            validators: null
+            value: Talon
+          Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+            choices: *id004
+            default: '1'
+            name: Output Channel (PWM)
+            validators: *id005
+            value: '4'
       Properties:
         Sensitivity: !!robotbuilder.data.properties.DoubleProperty {default: 0.5,
           name: Sensitivity, validators: null, value: 0.5}
+        Right Front Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
+          default: false, name: Right Front Motor Inverted, validators: null, value: false}
         Safety Enabled: !!robotbuilder.data.properties.BooleanProperty {default: true,
           name: Safety Enabled, validators: null, value: true}
-        Left Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {default: false,
-          name: Left Motor Inverted, validators: null, value: false}
-        Right Motor: !!robotbuilder.data.properties.ChildSelectionProperty
-          default: 1
-          name: Right Motor
+        Left Front Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
+          default: false, name: Left Front Motor Inverted, validators: null, value: false}
+        Right Front Motor: !!robotbuilder.data.properties.ChildSelectionProperty
+          default: 2
+          name: Right Front Motor
           type: PIDOutput
-          validators: [RobotDrive2, ChildDropdownSelected]
-          value: DriveSystem RightWheel
+          validators: [RobotDrive4, ChildDropdownSelected]
+          value: DriveTrain RightFrontWheel
         Maximum Output: !!robotbuilder.data.properties.DoubleProperty {default: 1,
           name: Maximum Output, validators: null, value: 1.0}
-        Left Motor: !!robotbuilder.data.properties.ChildSelectionProperty
-          default: 0
-          name: Left Motor
+        Right Rear Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
+          default: false, name: Right Rear Motor Inverted, validators: null, value: false}
+        Left Rear Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {
+          default: false, name: Left Rear Motor Inverted, validators: null, value: false}
+        Right Rear Motor: !!robotbuilder.data.properties.ChildSelectionProperty
+          default: 3
+          name: Right Rear Motor
           type: PIDOutput
-          validators: [RobotDrive2, ChildDropdownSelected]
-          value: DriveSystem LeftWheel
-        Right Motor Inverted: !!robotbuilder.data.properties.BooleanProperty {default: false,
-          name: Right Motor Inverted, validators: null, value: false}
+          validators: [RobotDrive4, ChildDropdownSelected]
+          value: DriveTrain RightRearWheel
+        Left Rear Motor: !!robotbuilder.data.properties.ChildSelectionProperty
+          default: 1
+          name: Left Rear Motor
+          type: PIDOutput
+          validators: [RobotDrive4, ChildDropdownSelected]
+          value: DriveTrain LeftRearWheel
+        Left Front Motor: !!robotbuilder.data.properties.ChildSelectionProperty
+          default: 0
+          name: Left Front Motor
+          type: PIDOutput
+          validators: [RobotDrive4, ChildDropdownSelected]
+          value: DriveTrain LeftFrontWheel
         Safety Expiration Time: !!robotbuilder.data.properties.DoubleProperty {default: 0.1,
           name: Safety Expiration Time, validators: null, value: 0.1}
     Properties:
@@ -126,7 +186,7 @@ Properties:
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: Autonomous Command}
   Wiring File: !!robotbuilder.data.properties.FileProperty {default: '', extension: html,
-    folder: false, name: Wiring File, validators: null, value: 'C:\Users\robotics\Desktop\TeamCode\TestMuleMap.html'}
+    folder: false, name: Wiring File, validators: null, value: 'C:\team3566-2014\MuleWiring.html'}
   C++ Windriver Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Windriver\workspace',
     extension: null, folder: true, name: C++ Windriver Workspace, validators: null,
     value: 'C:\Windriver\workspace'}
@@ -142,4 +202,4 @@ Properties:
     name: Export Commands, validators: null, value: true}
   Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\NetBeansProjects',
     extension: null, folder: true, name: Java Project Directory, validators: null,
-    value: 'C:\Users\robotics\Desktop\TeamCode'}
+    value: 'C:\team3566-2014'}
