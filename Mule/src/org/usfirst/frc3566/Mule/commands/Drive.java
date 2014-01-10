@@ -35,7 +35,7 @@ public class  Drive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(Robot.oi.leftJoystick.getMagnitude(), Robot.oi.leftJoystick.getDirectionDegrees(), Robot.oi.rightJoystick.getX());
+        RobotMap.driveTrainRobotDrive.mecanumDrive_Cartesian(-1*Robot.oi.leftJoystick.getX(), Robot.oi.leftJoystick.getY(), Robot.oi.getRightJoystick().getX(), 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
