@@ -36,6 +36,9 @@ public class  Drive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        mag = 0;
+        deg = 0;
+        rot = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -44,16 +47,17 @@ public class  Drive extends Command {
          * Update mag and deg
          */
          mag = 0.75*Robot.oi.leftJoystick.getMagnitude();
-         deg = -1*Robot.oi.leftJoystick.getDirectionDegrees();
-         rot = 0.75*Robot.oi.leftJoystick.getZ();
+         deg = Robot.oi.leftJoystick.getDirectionDegrees();
+         rot = 0.75*Robot.oi.rightJoystick.getZ();
          /*
           * Pass the parameters
           *  RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(double magnitude, double degree, double rotation);
           */
-         
-        if(mag>.1||deg>.1||rot>.1){ 
-             RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, rot); //The mecanum drive function that pass the parameters to the drivetrain to make it run
-        }
+         if ((deg<5)&&(deg>0)) deg = 5;
+         if ((deg>-5)&&(deg<0)) deg = -5;
+         if ((rot <0.1)&&(rot>0)) rot = 0.1;
+         if ((rot >-0.1)&&(rot<0)) rot = -0.1;
+         RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, rot); //The mecanum drive function that pass the parameters to the drivetrain to make it run
     
     }   
 
