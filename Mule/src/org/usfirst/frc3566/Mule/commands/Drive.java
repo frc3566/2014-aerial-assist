@@ -46,9 +46,9 @@ public class  Drive extends Command {
         /*
          * Update mag and deg
          */
-         mag = 0.75*Robot.oi.leftJoystick.getMagnitude();
+         mag = 0.85*Robot.oi.leftJoystick.getMagnitude();
          deg = Robot.oi.leftJoystick.getDirectionDegrees();
-         rot = 0.75*Robot.oi.rightJoystick.getZ();
+         rot = 0.65*Robot.oi.leftJoystick.getZ();
          /*
           * Pass the parameters
           *  RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(double magnitude, double degree, double rotation);
