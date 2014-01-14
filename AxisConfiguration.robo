@@ -47,20 +47,29 @@
     <tab>
       <filter:2>
         <create_array>0</create_array>
-        <count_threshold>5</count_threshold>
-        <weight_threshold/>
+        <count_threshold>2</count_threshold>
+        <weight_threshold>0.8</weight_threshold>
         <invert_count>0</invert_count>
         <filter_id>67</filter_id>
         <invert_threshold>0</invert_threshold>
       </filter:2>
+      <filter:3>
+        <create_array>0</create_array>
+        <ratio>3.20000</ratio>
+        <count_threshold>2</count_threshold>
+        <weight_threshold>0.5</weight_threshold>
+        <invert_count>0</invert_count>
+        <filter_id>63</filter_id>
+        <invert_threshold>0</invert_threshold>
+      </filter:3>
       <filter>
         <create_array>0</create_array>
-        <count_threshold>4</count_threshold>
-        <weight_threshold>0</weight_threshold>
+        <count_threshold/>
+        <weight_threshold/>
         <invert_count>0</invert_count>
         <filter_id>8</filter_id>
         <invert_threshold>0</invert_threshold>
-        <minimum_size>4500</minimum_size>
+        <minimum_size>4000</minimum_size>
       </filter>
     </tab>
     <tab:6/>
@@ -72,3 +81,35 @@
   <show_weights>TRUE</show_weights>
   <create_blob_array_variable>FALSE</create_blob_array_variable>
 </Blob_Filter>
+<Blob_Replace>
+  <thickness>1</thickness>
+  <color_index>7</color_index>
+  <fill_shape>TRUE</fill_shape>
+  <order_array_on_x>FALSE</order_array_on_x>
+  <shape_index>15</shape_index>
+  <order_array_on_y>FALSE</order_array_on_y>
+</Blob_Replace>
+<Center_of_Gravity>
+  <show_coord>TRUE</show_coord>
+  <display_as_annotation>FALSE</display_as_annotation>
+  <color_index>2</color_index>
+  <connect_line>FALSE</connect_line>
+  <size_index>5</size_index>
+  <density>-1</density>
+  <use_subpixel>FALSE</use_subpixel>
+  <show_box>TRUE</show_box>
+  <box_size>9</box_size>
+  <overlay_image>Current</overlay_image>
+  <show_cog>TRUE</show_cog>
+  <threshold>-1</threshold>
+</Center_of_Gravity>
+<NetworkTables>
+  <port>1735</port>
+  <variable_type_index>0</variable_type_index>
+  <variables_to_send>COG_X
+COG_Y</variables_to_send>
+  <prefix>SmartDashBoard</prefix>
+  <filter_type_index>0</filter_type_index>
+  <delay>100</delay>
+  <hostname>10.35.66.2</hostname>
+</NetworkTables>
