@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
         // SmartDashboard
 	roboRealm = NetworkTable.getTable("RoboRealm");
         try {
-            SmartDashboard.putNumber("test", roboRealm.getNumber("test"));
+            SmartDashboard.putString("test", roboRealm.getValue("test").toString());
         } catch (TableKeyNotDefinedException e) {
             System.out.println(e.getMessage());
         }
