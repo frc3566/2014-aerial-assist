@@ -25,6 +25,10 @@ public class RobotMap {
     public static SpeedController driveTrainRightFront;
     public static SpeedController driveTrainRightRear;
     public static RobotDrive driveTrainMechanum;
+    public static Encoder driveTrainLeftFrontEncoder;
+    public static Encoder driveTrainLeftRearEncoder;
+    public static Encoder driveTrainRightFrontEncoder;
+    public static Encoder driveTrainRightRearEncoder;
     public static Ultrasonic sensorsUltrasonic;
     public static SpeedController el_ToroLeft_Toro;
     public static SpeedController el_ToroRight_Toro;
@@ -53,6 +57,26 @@ public class RobotMap {
         driveTrainMechanum.setExpiration(0.1);
         driveTrainMechanum.setSensitivity(0.5);
         driveTrainMechanum.setMaxOutput(1.0);
+        driveTrainLeftFrontEncoder = new Encoder(1, 5, 1, 6, false, EncodingType.k4X);
+	LiveWindow.addSensor("DriveTrain", "LeftFrontEncoder", driveTrainLeftFrontEncoder);
+        driveTrainLeftFrontEncoder.setDistancePerPulse(1.0);
+        driveTrainLeftFrontEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        driveTrainLeftFrontEncoder.start();
+        driveTrainLeftRearEncoder = new Encoder(1, 7, 1, 8, false, EncodingType.k4X);
+	LiveWindow.addSensor("DriveTrain", "LeftRearEncoder", driveTrainLeftRearEncoder);
+        driveTrainLeftRearEncoder.setDistancePerPulse(1.0);
+        driveTrainLeftRearEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        driveTrainLeftRearEncoder.start();
+        driveTrainRightFrontEncoder = new Encoder(1, 9, 1, 10, false, EncodingType.k4X);
+	LiveWindow.addSensor("DriveTrain", "RightFrontEncoder", driveTrainRightFrontEncoder);
+        driveTrainRightFrontEncoder.setDistancePerPulse(1.0);
+        driveTrainRightFrontEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        driveTrainRightFrontEncoder.start();
+        driveTrainRightRearEncoder = new Encoder(1, 11, 1, 12, false, EncodingType.k4X);
+	LiveWindow.addSensor("DriveTrain", "RightRearEncoder", driveTrainRightRearEncoder);
+        driveTrainRightRearEncoder.setDistancePerPulse(1.0);
+        driveTrainRightRearEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        driveTrainRightRearEncoder.start();
         sensorsUltrasonic = new Ultrasonic(1, 1, 1, 2);
 	LiveWindow.addSensor("Sensors", "Ultrasonic", sensorsUltrasonic);
         
