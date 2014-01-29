@@ -29,8 +29,8 @@
 <RGB_Filter>
   <hue_value>80</hue_value>
   <hysteresis>20</hysteresis>
-  <min_value>100</min_value>
-  <channel>256</channel>
+  <min_value>120</min_value>
+  <channel>2</channel>
 </RGB_Filter>
 <Adaptive_Threshold>
   <mean_offset>10</mean_offset>
@@ -47,16 +47,17 @@
     <tab>
       <filter:2>
         <create_array>0</create_array>
-        <count_threshold>2</count_threshold>
-        <weight_threshold>0.8</weight_threshold>
+        <count_threshold>0</count_threshold>
+        <weight_threshold>0</weight_threshold>
         <invert_count>0</invert_count>
-        <filter_id>67</filter_id>
+        <filter_id>8</filter_id>
         <invert_threshold>0</invert_threshold>
+        <minimum_size>2000</minimum_size>
       </filter:2>
       <filter:3>
         <create_array>0</create_array>
-        <ratio>3.20000</ratio>
-        <count_threshold>2</count_threshold>
+        <ratio>5.00000</ratio>
+        <count_threshold>1</count_threshold>
         <weight_threshold>0.5</weight_threshold>
         <invert_count>0</invert_count>
         <filter_id>63</filter_id>
@@ -64,12 +65,11 @@
       </filter:3>
       <filter>
         <create_array>0</create_array>
-        <count_threshold/>
-        <weight_threshold/>
+        <count_threshold>0</count_threshold>
+        <weight_threshold>0</weight_threshold>
         <invert_count>0</invert_count>
-        <filter_id>8</filter_id>
+        <filter_id>67</filter_id>
         <invert_threshold>0</invert_threshold>
-        <minimum_size>4000</minimum_size>
       </filter>
     </tab>
     <tab:6/>
@@ -91,17 +91,18 @@
 </Blob_Replace>
 <Center_of_Gravity>
   <show_coord>TRUE</show_coord>
-  <display_as_annotation>FALSE</display_as_annotation>
-  <color_index>2</color_index>
-  <connect_line>FALSE</connect_line>
-  <size_index>5</size_index>
-  <density>-1</density>
-  <use_subpixel>FALSE</use_subpixel>
-  <show_box>TRUE</show_box>
-  <box_size>9</box_size>
-  <overlay_image>Current</overlay_image>
-  <show_cog>TRUE</show_cog>
   <threshold>-1</threshold>
+  <display_as_annotation>FALSE</display_as_annotation>
+  <density>-1</density>
+  <size_index>5</size_index>
+  <show_cog>TRUE</show_cog>
+  <overlay_image>Current</overlay_image>
+  <box_size>9</box_size>
+  <shape_index>3</shape_index>
+  <connect_line>FALSE</connect_line>
+  <use_subpixel>FALSE</use_subpixel>
+  <color_index>2</color_index>
+  <show_box>TRUE</show_box>
 </Center_of_Gravity>
 <NetworkTables>
   <port>1735</port>

@@ -46,21 +46,21 @@ public class  Drive extends Command {
         /*
          * Update mag and deg
          */
-         mag =/* 0.85*/Robot.oi.leftJoystick.getMagnitude();
-         deg = Robot.oi.leftJoystick.getDirectionDegrees();
-         rot = /*0.65*/Robot.oi.leftJoystick.getZ();
+         mag =/* 0.85*/.1*Robot.oi.leftJoystick.getMagnitude();
+         deg = .1*Robot.oi.leftJoystick.getDirectionDegrees();
+         rot = /*0.65*/.1*Robot.oi.leftJoystick.getZ();
          /*
           * Pass the parameters
           *  RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(double magnitude, double degree, double rotation);
           */
-         if ((deg<5)&&(deg>0)) deg = 5;
-         if ((deg>-5)&&(deg<0)) deg = -5;
-         if ((rot <0.1)&&(rot>0)) rot = 0.1;
-         if ((rot >-0.1)&&(rot<0)) rot = -0.1;
+        // if ((deg<5)&&(deg>0)) deg = 5;
+         //if ((deg>-5)&&(deg<0)) deg = -5;
+         //if ((rot <0.1)&&(rot>0)) rot = 0.1;
+         //if ((rot >-0.1)&&(rot<0)) rot = -0.1;
          RobotMap.driveTrainRobotDrive.mecanumDrive_Polar(mag, deg, rot); //The mecanum drive function that pass the parameters to the drivetrain to make it run
     
     }   
-
+  
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
