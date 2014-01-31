@@ -4,5 +4,10 @@
 *.jar
 *.war
 *.ear
-/DriveTrain/nbproject/private/
-/Mule/build/
+
+# Inventor #
+lockfile.lck
+
+# NetBeans #
+*.bak.*
+*/build/*
