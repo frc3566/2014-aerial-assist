@@ -26,13 +26,13 @@ public class  MecDrive extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        mag=Robot.oi.rightJoy.getMagnitude();
-        ang=Robot.oi.rightJoy.getDirectionDegrees();
-        rot=Robot.oi.rightJoy.getZ();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.driveTrainMechanum.mecanumDrive_Polar(mag, ang, rot);
+        mag=Robot.oi.rightJoy.getMagnitude();
+        ang=Robot.oi.rightJoy.getDirectionDegrees();
+        rot=Robot.oi.rightJoy.getZ();
+        RobotMap.driveTrainMecanum.mecanumDrive_Polar(mag, ang, rot);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
