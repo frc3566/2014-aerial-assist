@@ -30,6 +30,7 @@ public class RobotMap {
     public static Encoder driveTrainLeftRearEncoder;
     public static Encoder driveTrainRightRearEncoder;
     public static Encoder driveTrainRightFrontEncoder;
+    public static Ultrasonic driveTrainUltrasonic;
     public static SpeedController el_ToroLeftArm;
     public static SpeedController el_ToroRightArm;
     public static SpeedController el_ToroUpdownMotor;
@@ -77,6 +78,9 @@ public class RobotMap {
         driveTrainRightFrontEncoder.setDistancePerPulse(1.0);
         driveTrainRightFrontEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
         driveTrainRightFrontEncoder.start();
+        driveTrainUltrasonic = new Ultrasonic(1, 11, 1, 12);
+	LiveWindow.addSensor("DriveTrain", "Ultrasonic", driveTrainUltrasonic);
+        
         el_ToroLeftArm = new Talon(1, 5);
 	LiveWindow.addActuator("El_Toro", "LeftArm", (Talon) el_ToroLeftArm);
         
