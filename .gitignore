@@ -7,7 +7,12 @@
 
 # Inventor #
 lockfile.lck
+*.bak
 
 # NetBeans #
-*.bak.*
 */build/*
+*/nbbuild/*
+*/dist/*
+*/nbdist/*
+*/private/*
+*/nbprivate/*
