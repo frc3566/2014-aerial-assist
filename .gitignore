@@ -9,6 +9,7 @@
 lockfile.lck
 *.bak
 */OldVersions/*
+plot.log
 
 # NetBeans #
 */build/*
