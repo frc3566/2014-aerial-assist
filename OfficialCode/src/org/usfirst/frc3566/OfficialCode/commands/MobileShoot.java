@@ -29,8 +29,10 @@ public class  MobileShoot extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (RobotMap.driveTrainUltrasonic.getRangeInches()<=14){
-            //functions to shoot
-            isShot=true;
+            if (RobotMap.driveTrainLeftFrontEncoder.getRate()>=50){
+                //functions to shoot
+                isShot=true;
+            }
         }
     }
     // Make this return true when this Command no longer needs to run execute()
