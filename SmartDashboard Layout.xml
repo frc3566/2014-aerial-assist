@@ -1,0 +1,33 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="GoTo" type="PIDCommand" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="323"/>
+	</widget>
+	<widget field="LF Encoder" type="Quadrature Encoder" class="edu.wpi.first.smartdashboard.livewindow.elements.EncoderDisplay">
+		<location x="323" y="54"/>
+	</widget>
+	<widget field="Ultrasonic" type="Ultrasonic" class="edu.wpi.first.smartdashboard.livewindow.elements.SingleNumberDisplay">
+		<location x="323" y="214"/>
+	</widget>
+	<widget field="MobileShoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="180"/>
+	</widget>
+	<widget field="MecDrive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="144"/>
+	</widget>
+	<widget field="DriveAtSpeed" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="108"/>
+	</widget>
+	<widget field="Autonomous Command" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="72"/>
+	</widget>
+	<widget field="Shoot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="36"/>
+	</widget>
+	<widget field="DrivenShot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="0" y="0"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
