@@ -178,14 +178,14 @@ Children:
           default: '1'
           name: Channel B Channel (Digital)
           validators: &id013 [DigitalChannel]
-          value: '6'
+          value: '2'
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id014 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
             '12', '13', '14']
           default: '1'
           name: Channel A Channel (Digital)
           validators: &id015 [DigitalChannel]
-          value: '5'
+          value: '1'
         Reverse Direction: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Reverse Direction, validators: null, value: false}
     - Name: LeftRearEncoder
@@ -267,13 +267,13 @@ Children:
           default: '1'
           name: Channel B Channel (Digital)
           validators: *id013
-          value: '2'
+          value: '6'
         Channel A Channel (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: '1'
           name: Channel A Channel (Digital)
           validators: *id015
-          value: '1'
+          value: '5'
         Reverse Direction: !!robotbuilder.data.properties.BooleanProperty {default: false,
           name: Reverse Direction, validators: null, value: true}
     - Name: RightRearEncoder

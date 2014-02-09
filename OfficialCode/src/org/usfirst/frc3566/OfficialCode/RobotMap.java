@@ -28,6 +28,7 @@ public class RobotMap {
     public static RobotDrive driveTrainMecanum;
     public static Encoder driveTrainLeftFrontEncoder;
     public static Encoder driveTrainLeftRearEncoder;
+    public static Encoder driveTrainRightFrontEncoder;
     public static Encoder driveTrainRightRearEncoder;
     public static Ultrasonic driveTrainUltrasonic;
     public static SpeedController el_ToroLeftArm;
@@ -61,7 +62,7 @@ public class RobotMap {
         driveTrainMecanum.setMaxOutput(1.0);
         driveTrainMecanum.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         driveTrainMecanum.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-        driveTrainLeftFrontEncoder = new Encoder(1, 5, 1, 6, false, EncodingType.k4X);
+        driveTrainLeftFrontEncoder = new Encoder(1, 1, 1, 2, false, EncodingType.k4X);
 	LiveWindow.addSensor("DriveTrain", "LeftFrontEncoder", driveTrainLeftFrontEncoder);
         driveTrainLeftFrontEncoder.setDistancePerPulse(1.0);
         driveTrainLeftFrontEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
@@ -71,12 +72,17 @@ public class RobotMap {
         driveTrainLeftRearEncoder.setDistancePerPulse(1.0);
         driveTrainLeftRearEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
         driveTrainLeftRearEncoder.start();
-        driveTrainRightRearEncoder = new Encoder(1, 7, 1, 8, false, EncodingType.k4X);
+        driveTrainRightFrontEncoder = new Encoder(1, 5, 1, 6, true, EncodingType.k4X);
+	LiveWindow.addSensor("DriveTrain", "RightFrontEncoder", driveTrainRightFrontEncoder);
+        driveTrainRightFrontEncoder.setDistancePerPulse(1.0);
+        driveTrainRightFrontEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
+        driveTrainRightFrontEncoder.start();
+        driveTrainRightRearEncoder = new Encoder(1, 7, 1, 8, true, EncodingType.k4X);
 	LiveWindow.addSensor("DriveTrain", "RightRearEncoder", driveTrainRightRearEncoder);
         driveTrainRightRearEncoder.setDistancePerPulse(1.0);
         driveTrainRightRearEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
         driveTrainRightRearEncoder.start();
-        driveTrainUltrasonic = new Ultrasonic(1, 1, 1, 2);
+        driveTrainUltrasonic = new Ultrasonic(1, 11, 1, 12);
 	LiveWindow.addSensor("DriveTrain", "Ultrasonic", driveTrainUltrasonic);
         
         el_ToroLeftArm = new Talon(1, 5);
