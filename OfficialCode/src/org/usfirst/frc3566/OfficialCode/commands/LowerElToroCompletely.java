@@ -11,14 +11,13 @@
 
 package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import org.usfirst.frc3566.OfficialCode.RobotConstants;
 
 /**
  *
  */
-public class FireCatapult extends CommandGroup {
+public class LowerElToroCompletely extends CommandGroup {
     
-    public  FireCatapult() {
+    public  LowerElToroCompletely() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -36,9 +35,7 @@ public class FireCatapult extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addSequential(new LowerElToroCompletely());
-        addSequential(new DisengageDogbox());
-        addSequential(new Pause(RobotConstants.TIME_TO_FIRE_CATAPULT));
-        addSequential(new PrepareCatapult());
+        addSequential(new LowerElToro());
+        addSequential(new LowerElToro());
     }
 }
