@@ -365,7 +365,7 @@ Children:
   - Name: Catapult
     Base: Subsystem
     Children:
-    - Name: Winch Engage Motor
+    - Name: Dogbox Engage Motor
       Base: Speed Controller
       Children: []
       Properties:
@@ -409,7 +409,7 @@ Children:
           name: Output Channel (PWM)
           validators: *id005
           value: '8'
-    - Name: Winch Engage Encoder
+    - Name: Dogbox Engage Encoder
       Base: Quadrature Encoder
       Children: []
       Properties:
