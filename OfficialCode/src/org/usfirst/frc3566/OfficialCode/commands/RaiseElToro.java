@@ -29,18 +29,18 @@ public class  RaiseElToro extends Command {
         if (RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_FULL_DOWN) {
             setTimeout(RobotConstants.EL_TORO_TIME_FROM_FULL_DOWN_TO_PARK);
         }
-    }
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
         if (RobotMap.getElToroCurrentPosition() != RobotConstants.EL_TORO_FULL_UP) {
             RobotMap.el_ToroUpdownMotor.set(RobotConstants.EL_TORO_RAISE_SPEED);
         }
+    }
+    // Called repeatedly when this Command is scheduled to run
+    protected void execute() {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if (RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_FULL_UP) {
             return true;
-        } else if(RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_PARK && RobotMap.el_ToroUpperCap.get()) {
+        } else if(RobotMap.el_ToroUpperCap.get()) {
             RobotMap.setElToroCurrentPosition(RobotConstants.EL_TORO_FULL_UP);
             return true;
         } else if (RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_FULL_DOWN && isTimedOut()) {
@@ -52,6 +52,7 @@ public class  RaiseElToro extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
+        RobotMap.el_ToroUpdownMotor.set(0);
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
