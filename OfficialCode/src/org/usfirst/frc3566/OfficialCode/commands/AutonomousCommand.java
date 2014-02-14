@@ -46,7 +46,7 @@ public class AutonomousCommand extends CommandGroup {
         // of gravity x-coordinate, then the goal is not hot -- which works if
         // we're looking at the right-hand goal and the blobs are sorted by
         // x-coordinate -- we probably  need to be MORE careful than that
-        if (SmartDashboard.getDouble("BLOBS(3)", -1) > 0) {
+        if (SmartDashboard.getNumber("/RoboRealm/BLOBS(3)", -1) > 0) {
             RobotMap.driveTrainLeftFrontEncoder.reset();
             addParallel(new DriveAtSpeed(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
             while(RobotMap.driveTrainLeftFrontEncoder.get() < RobotConstants.ENCODER_TICKS_PER_FOOT * RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL) {
