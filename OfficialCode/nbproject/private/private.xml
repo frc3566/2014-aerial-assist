@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/OI.java</file>
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/commands/DriveAtSpeed.java</file>
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/Robot.java</file>
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/commands/AutonomousCommand.java</file>
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/commands/GoTo.java</file>
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/commands/MecDrive.java</file>
+        <file>file:/C:/Users/robotics/Documents/GitHub/team3566-2014/OfficialCode/src/org/usfirst/frc3566/OfficialCode/RobotMap.java</file>
+    </open-files>
 </project-private>

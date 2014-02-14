@@ -336,7 +336,7 @@ Children:
           default: '1'
           name: Input Channel (Digital)
           validators: &id007 [DigitalChannel]
-          value: '9'
+          value: '10'
         Input Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: &id008 ['1', '2']
           default: '1'
@@ -352,7 +352,7 @@ Children:
           default: '1'
           name: Input Channel (Digital)
           validators: *id007
-          value: '10'
+          value: '9'
         Input Module (Digital): !!robotbuilder.data.properties.ChoicesProperty
           choices: *id008
           default: '1'
@@ -729,6 +729,6 @@ Properties:
     validators: null, value: 3566}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
-  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: /Users/sethbattis/NetBeansProjects,
+  Java Project Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\NetBeansProjects',
     extension: null, folder: true, name: Java Project Directory, validators: null,
-    value: ./}
+    value: .\}
