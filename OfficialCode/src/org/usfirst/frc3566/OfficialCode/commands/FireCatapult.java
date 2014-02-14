@@ -36,7 +36,6 @@ public class FireCatapult extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addSequential(new LowerElToroCompletely());
         addSequential(new DisengageDogbox());
         addSequential(new Pause(RobotConstants.TIME_TO_FIRE_CATAPULT));
         addSequential(new PrepareCatapult());
