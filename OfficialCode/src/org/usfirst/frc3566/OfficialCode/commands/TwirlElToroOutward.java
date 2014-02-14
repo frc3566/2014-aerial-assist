@@ -18,6 +18,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TwirlElToroOutward extends CommandGroup {
     
     public  TwirlElToroOutward() {
+        addSequential(new TwirlLeftArmOutward());
+        addSequential(new TwirlRightArmOutward());
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

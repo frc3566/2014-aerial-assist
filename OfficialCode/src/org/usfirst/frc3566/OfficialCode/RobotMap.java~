@@ -93,10 +93,10 @@ public class RobotMap {
         el_ToroUpdownMotor = new Talon(1, 7);
 	LiveWindow.addActuator("El_Toro", "UpdownMotor", (Talon) el_ToroUpdownMotor);
         
-        el_ToroUpperCap = new DigitalInput(1, 9);
+        el_ToroUpperCap = new DigitalInput(1, 10);
 	LiveWindow.addSensor("El_Toro", "UpperCap", el_ToroUpperCap);
         
-        el_ToroLowerCap = new DigitalInput(1, 10);
+        el_ToroLowerCap = new DigitalInput(1, 9);
 	LiveWindow.addSensor("El_Toro", "LowerCap", el_ToroLowerCap);
         
         catapultDogboxEngageMotor = new Talon(1, 9);
