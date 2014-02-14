@@ -10,6 +10,8 @@
 package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3566.OfficialCode.Robot;
+import org.usfirst.frc3566.OfficialCode.RobotConstants;
+import org.usfirst.frc3566.OfficialCode.RobotMap;
 /**
  *
  */
@@ -24,13 +26,15 @@ public class  EngageDogbox extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        RobotMap.catapultWinchEngageEncoder.reset();
+        RobotMap.catapultWinchEngageMotor.set(RobotConstants.WINCH_ENGAGE_SPEED);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return RobotMap.catapultWinchEngageEncoder.get() == RobotConstants.WINCH_ENGAGE_ARC;
     }
     // Called once after isFinished returns true
     protected void end() {

@@ -26,14 +26,14 @@ public class  TwirlRightArmOutward extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        RobotMap.el_ToroRightArm.set(-RobotConstants.EL_TORO_TWIRL_OUTWARD_SPEED);
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        RobotMap.el_ToroRightArm.set(-RobotConstants.EL_TORO_TWIRL_OUTWARD_SPEED);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {
