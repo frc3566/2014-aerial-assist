@@ -33,6 +33,7 @@ public class  MecDrive extends Command {
         ang=Robot.oi.rightJoy.getDirectionDegrees();
         rot=Robot.oi.rightJoy.getZ();
         RobotMap.driveTrainMecanum.mecanumDrive_Polar(mag, ang, rot);
+        //System.out.println(RobotMap.driveTrainUltrasonic.getRangeInches());
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
