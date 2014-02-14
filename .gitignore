@@ -19,3 +19,5 @@ plot.log
 */private/*
 */nbprivate/*
 *.*~
+*.*.bak
+*.bak.*
