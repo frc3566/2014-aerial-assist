@@ -35,7 +35,7 @@ public class  WindWinch extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.catapultCatapultLimit.get() == RobotConstants.CATAPULT_LIMIT_CLOSED;
+        return RobotMap.catapultCatapultReady.get() == RobotConstants.CATAPULT_LIMIT_CLOSED;
     }
     // Called once after isFinished returns true
     protected void end() {
