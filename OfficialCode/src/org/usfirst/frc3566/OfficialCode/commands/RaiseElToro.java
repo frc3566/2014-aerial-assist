@@ -26,10 +26,10 @@ public class  RaiseElToro extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        if (RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_FULL_DOWN) {
+        if (Robot.el_Toro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_DOWN) {
             setTimeout(RobotConstants.EL_TORO_TIME_FROM_FULL_DOWN_TO_PARK);
         }
-        if (RobotMap.getElToroCurrentPosition() != RobotConstants.EL_TORO_FULL_UP) {
+        if (Robot.el_Toro.getUpDownPosition() != RobotConstants.EL_TORO_FULL_UP) {
             RobotMap.el_ToroUpdownMotor.set(RobotConstants.EL_TORO_RAISE_SPEED);
         }
     }
@@ -38,13 +38,13 @@ public class  RaiseElToro extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_FULL_UP) {
+        if (Robot.el_Toro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_UP) {
             return true;
-        } else if(RobotMap.el_ToroUpperCap.get()) {
-            RobotMap.setElToroCurrentPosition(RobotConstants.EL_TORO_FULL_UP);
+        } else if(RobotMap.el_ToroUpperCap.get() == RobotConstants.EL_TORO_UPPER_LIMIT_CLOSED) {
+            Robot.el_Toro.setUpDownPosition(RobotConstants.EL_TORO_FULL_UP);
             return true;
-        } else if (RobotMap.getElToroCurrentPosition() == RobotConstants.EL_TORO_FULL_DOWN && isTimedOut()) {
-            RobotMap.setElToroCurrentPosition(RobotConstants.EL_TORO_PARK);
+        } else if (Robot.el_Toro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_DOWN && isTimedOut()) {
+            Robot.el_Toro.setUpDownPosition(RobotConstants.EL_TORO_PARK);
             return true;
         } else {
             return false;
