@@ -38,7 +38,6 @@ public class AutonomousCommand extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         
-        addParallel(new LowerElToroCompletely());
 
         // FIXME this needs to be done with RoboRealm running, so that we can
         // figure out exactly what our "is the goal hot" test is

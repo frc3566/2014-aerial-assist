@@ -26,24 +26,20 @@ public class RobotConstants {
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL = 2.0; // seconds
     
-    public static final double EL_TORO_RAISE_SPEED = 1.0;
-    public static final double EL_TORO_LOWER_SPEED = 1.0;
-    public static final double EL_TORO_TIME_FROM_FULL_DOWN_TO_PARK = 0.1; // seconds, FIXME WAG
-    public static final double EL_TORO_TIME_FROM_FULL_UP_TO_PARK = 0.1; // seconds, FIXME WAG
-    public static final int EL_TORO_FULL_DOWN = 0;
-    public static final int EL_TORO_PARK = 1;
-    public static final int EL_TORO_FULL_UP = 2;
     public static final double EL_TORO_TWIRL_INWARD_SPEED = 0.5; // percentage of full speed, FIXME WAG
     public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -0.5; // percentage of full speed, FIXME WAG
-    
+
+    public static final double FLIPPER_RAISE_SPEED = 0.5; // percentage of full speed, FIXME WAG
+    public static final double FLIPPER_LOWER_SPEED = -0.5; // percentage of full speed, FIXME WAG
+
     public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, FIXME WAG
     public static final double WINCH_ENGAGE_SPEED = 0.1; // percentage of full speed, FIXME WAG
     public static final double WINCH_DISENGAGE_SPEED = -WINCH_ENGAGE_SPEED; // percentage of full speed, FIXME WAG
     public static final double WINCH_ENGAGE_ARC = 10; // degrees/ticks, FIXME WAG
     
     public static final boolean DEFAULT_LIMIT_CLOSED = true; // seems like default-open is a fine assumption, no?
-    public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
-    public static final boolean EL_TORO_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
+    public static final boolean FLIPPER_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
+    public static final boolean FLIPPER_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean CATAPULT_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean WINCH_ENGAGE_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean WINCH_DISENGAGE_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
