@@ -40,7 +40,7 @@ public class RobotConstants {
     public static final boolean DEFAULT_LIMIT_CLOSED = true; // seems like default-open is a fine assumption, no?
     public static final boolean FLIPPER_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean FLIPPER_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
-    public static final boolean CATAPULT_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
+    public static final boolean CATAPULT_READY_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean WINCH_ENGAGE_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean WINCH_DISENGAGE_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
 }

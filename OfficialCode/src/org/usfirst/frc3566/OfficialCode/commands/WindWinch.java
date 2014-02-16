@@ -28,18 +28,18 @@ public class  WindWinch extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        RobotMap.catapultWinchMotor.set(RobotConstants.WINCH_WIND_SPEED);
+        Robot.catapult.windWinch();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.catapultCatapultReady.get() == RobotConstants.CATAPULT_LIMIT_CLOSED;
+        return Robot.catapult.catapultReady();
     }
     // Called once after isFinished returns true
     protected void end() {
-        RobotMap.catapultWinchMotor.set(0);
+        Robot.catapult.stopWindingWinch();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
