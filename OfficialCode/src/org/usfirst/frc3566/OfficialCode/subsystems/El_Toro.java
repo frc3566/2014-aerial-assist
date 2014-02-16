@@ -32,4 +32,22 @@ public class El_Toro extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    
+    public void twirl(double speed) {
+        leftArm.set(speed);
+        rightArm.set(speed);
+    }
+    
+    public void twirlInward() {
+        twirl(RobotConstants.EL_TORO_TWIRL_INWARD_SPEED);
+    }
+    
+    
+    public void twirlOutward() {
+        twirl(RobotConstants.EL_TORO_TWIRL_OUTWARD_SPEED);
+    }
+    
+    public void stopTwirling() {
+        twirl(0);
+    }
 }

@@ -12,6 +12,7 @@ import org.usfirst.frc3566.OfficialCode.RobotMap;
 import org.usfirst.frc3566.OfficialCode.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc3566.OfficialCode.RobotConstants;
 /**
  *
  */
@@ -30,5 +31,29 @@ public class Flipper extends Subsystem {
 	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public void raise() {
+        if (!atUpperLimit()) {
+            updownMotor.set(RobotConstants.FLIPPER_RAISE_SPEED);
+        }
+    }
+    
+    public void lower() {
+        if (!atLowerLimit()) {
+            updownMotor.set(RobotConstants.FLIPPER_LOWER_SPEED);
+        }
+    }
+    
+    public void stop() {
+        updownMotor.set(0);
+    }
+    
+    public boolean atUpperLimit() {
+        return upperCap.get() == RobotConstants.FLIPPER_UPPER_LIMIT_CLOSED;
+    }
+    
+    public boolean atLowerLimit() {
+        return lowerCap.get() == RobotConstants.FLIPPER_LOWER_LIMIT_CLOSED;
     }
 }
