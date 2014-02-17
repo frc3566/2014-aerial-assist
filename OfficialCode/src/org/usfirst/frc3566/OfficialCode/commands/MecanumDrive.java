@@ -14,7 +14,6 @@ import org.usfirst.frc3566.OfficialCode.Robot;
  *
  */
 public class  MecanumDrive extends Command {
-
     public MecanumDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
