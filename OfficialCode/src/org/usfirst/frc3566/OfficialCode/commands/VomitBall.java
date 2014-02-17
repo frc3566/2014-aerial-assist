@@ -36,7 +36,7 @@ public class VomitBall extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         addSequential(new TwirlElToroInward());
-        addSequential(new RaiseElToroCompletely());
+        addSequential(new RaiseElToro());
         addSequential(new LowerElToro());
         addSequential(new Pause(RobotConstants.EL_TORO_TIME_TO_VOMIT_BALL));
         addSequential(new StopTwirlingElToro());

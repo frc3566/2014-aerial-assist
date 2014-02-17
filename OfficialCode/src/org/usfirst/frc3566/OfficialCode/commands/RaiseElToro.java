@@ -25,9 +25,6 @@ public class  RaiseElToro extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        if (Robot.elToro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_DOWN) {
-            setTimeout(RobotConstants.EL_TORO_TIME_FROM_FULL_DOWN_TO_PARK);
-        }
         Robot.elToro.raise();
     }
     // Called repeatedly when this Command is scheduled to run
@@ -35,17 +32,7 @@ public class  RaiseElToro extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (Robot.elToro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_UP) {
-            return true;
-        } else if(Robot.elToro.atUpperLimit()) {
-            Robot.elToro.setUpDownPosition(RobotConstants.EL_TORO_FULL_UP);
-            return true;
-        } else if (Robot.elToro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_DOWN && isTimedOut()) {
-            Robot.elToro.setUpDownPosition(RobotConstants.EL_TORO_PARK);
-            return true;
-        } else {
-            return false;
-        }
+        return Robot.elToro.atUpperLimit();
     }
     // Called once after isFinished returns true
     protected void end() {
