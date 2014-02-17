@@ -11,7 +11,6 @@ package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3566.OfficialCode.Robot;
 import org.usfirst.frc3566.OfficialCode.RobotConstants;
-import org.usfirst.frc3566.OfficialCode.RobotMap;
 /**
  *
  */
@@ -29,9 +28,7 @@ public class  LowerElToro extends Command {
         if (Robot.el_Toro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_UP) {
             setTimeout(RobotConstants.EL_TORO_TIME_FROM_FULL_UP_TO_PARK);
         }
-        if (Robot.el_Toro.getUpDownPosition() != RobotConstants.EL_TORO_FULL_DOWN) {
-            RobotMap.el_ToroUpdownMotor.set(RobotConstants.EL_TORO_LOWER_SPEED);
-        }
+        Robot.el_Toro.lower();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -40,7 +37,7 @@ public class  LowerElToro extends Command {
     protected boolean isFinished() {
         if (Robot.el_Toro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_DOWN) {
             return true;
-        } else if (RobotMap.el_ToroLowerCap.get() == RobotConstants.EL_TORO_LOWER_LIMIT_CLOSED) {
+        } else if (Robot.el_Toro.atLowerLimit()) {
             Robot.el_Toro.setUpDownPosition(RobotConstants.EL_TORO_FULL_DOWN);
             return true;
         } else if (Robot.el_Toro.getUpDownPosition() == RobotConstants.EL_TORO_FULL_UP && isTimedOut()) {
@@ -52,7 +49,7 @@ public class  LowerElToro extends Command {
     }
     // Called once after isFinished returns true
     protected void end() {
-        RobotMap.el_ToroUpdownMotor.set(0);
+        Robot.el_Toro.stop();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run

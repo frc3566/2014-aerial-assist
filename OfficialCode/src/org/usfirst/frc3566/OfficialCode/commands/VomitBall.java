@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc3566.OfficialCode.RobotConstants;
 
 /**
  *
@@ -37,7 +38,7 @@ public class VomitBall extends CommandGroup {
         addSequential(new TwirlElToroOutward());
         addSequential(new RaiseElToroCompletely());
         addSequential(new LowerElToroCompletely());
-        addSequential(new Delay(2.5));
+        addSequential(new Pause(RobotConstants.EL_TORO_TIME_TO_VOMIT_BALL));
         addSequential(new StopTwirlingElToro());
         addSequential(new RaiseElToroCompletely());
     }
