@@ -10,10 +10,12 @@
 package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3566.OfficialCode.Robot;
+import org.usfirst.frc3566.OfficialCode.RobotMap;
 /**
  *
  */
 public class  MecanumDrive extends Command {
+    double mag=0,ang=0,rot=0;
     public MecanumDrive() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -27,6 +29,11 @@ public class  MecanumDrive extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        mag=Robot.oi.rightJoy.getMagnitude();
+        ang=Robot.oi.rightJoy.getDirectionDegrees();
+        rot=Robot.oi.rightJoy.getZ();
+        RobotMap.driveTrainMecanum.mecanumDrive_Polar(mag, ang, rot);
+        //System.out.println(RobotMap.driveTrainUltrasonic.getRangeInches());
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

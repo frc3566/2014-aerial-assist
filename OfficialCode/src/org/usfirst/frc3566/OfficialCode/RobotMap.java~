@@ -30,7 +30,7 @@ public class RobotMap {
     public static Ultrasonic driveTrainUltrasonic;
     public static SpeedController el_ToroLeftArm;
     public static SpeedController el_ToroRightArm;
-    public static SpeedController el_ToroUp-DownMotor;
+    public static SpeedController el_ToroElevator;
     public static DigitalInput el_ToroUpperLimit;
     public static DigitalInput el_ToroLowerLimit;
     public static SpeedController catapultDogboxEngageMotor;
@@ -76,8 +76,8 @@ public class RobotMap {
         el_ToroRightArm = new Talon(1, 6);
 	LiveWindow.addActuator("El_Toro", "Right Arm", (Talon) el_ToroRightArm);
         
-        el_ToroUp-DownMotor = new Talon(1, 7);
-	LiveWindow.addActuator("El_Toro", "Up-Down Motor", (Talon) el_ToroUp-DownMotor);
+        el_ToroElevator = new Talon(1, 7);
+	LiveWindow.addActuator("El_Toro", "Elevator", (Talon) el_ToroElevator);
         
         el_ToroUpperLimit = new DigitalInput(1, 10);
 	LiveWindow.addSensor("El_Toro", "Upper Limit", el_ToroUpperLimit);
