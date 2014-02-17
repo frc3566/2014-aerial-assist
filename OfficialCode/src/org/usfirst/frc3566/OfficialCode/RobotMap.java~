@@ -28,11 +28,11 @@ public class RobotMap {
     public static RobotDrive driveTrainMecanum;
     public static Encoder driveTrainLeftFrontEncoder;
     public static Ultrasonic driveTrainUltrasonic;
-    public static SpeedController el_ToroLeftArm;
-    public static SpeedController el_ToroRightArm;
-    public static SpeedController el_ToroElevator;
-    public static DigitalInput el_ToroUpperLimit;
-    public static DigitalInput el_ToroLowerLimit;
+    public static SpeedController elToroLeftArm;
+    public static SpeedController elToroRightArm;
+    public static SpeedController elToroElevator;
+    public static DigitalInput elToroUpperLimit;
+    public static DigitalInput elToroLowerLimit;
     public static SpeedController catapultWinchMotor;
     public static DigitalInput catapultCatapultReadyLimit;
     public static DigitalInput dogboxEngagedLimit;
@@ -70,20 +70,20 @@ public class RobotMap {
         driveTrainUltrasonic = new Ultrasonic(1, 11, 1, 12);
 	LiveWindow.addSensor("DriveTrain", "Ultrasonic", driveTrainUltrasonic);
         
-        el_ToroLeftArm = new Talon(1, 5);
-	LiveWindow.addActuator("El_Toro", "Left Arm", (Talon) el_ToroLeftArm);
+        elToroLeftArm = new Talon(1, 5);
+	LiveWindow.addActuator("El Toro", "Left Arm", (Talon) elToroLeftArm);
         
-        el_ToroRightArm = new Talon(1, 6);
-	LiveWindow.addActuator("El_Toro", "Right Arm", (Talon) el_ToroRightArm);
+        elToroRightArm = new Talon(1, 6);
+	LiveWindow.addActuator("El Toro", "Right Arm", (Talon) elToroRightArm);
         
-        el_ToroElevator = new Talon(1, 7);
-	LiveWindow.addActuator("El_Toro", "Elevator", (Talon) el_ToroElevator);
+        elToroElevator = new Talon(1, 7);
+	LiveWindow.addActuator("El Toro", "Elevator", (Talon) elToroElevator);
         
-        el_ToroUpperLimit = new DigitalInput(1, 10);
-	LiveWindow.addSensor("El_Toro", "Upper Limit", el_ToroUpperLimit);
+        elToroUpperLimit = new DigitalInput(1, 10);
+	LiveWindow.addSensor("El Toro", "Upper Limit", elToroUpperLimit);
         
-        el_ToroLowerLimit = new DigitalInput(1, 9);
-	LiveWindow.addSensor("El_Toro", "Lower Limit", el_ToroLowerLimit);
+        elToroLowerLimit = new DigitalInput(1, 9);
+	LiveWindow.addSensor("El Toro", "Lower Limit", elToroLowerLimit);
         
         catapultWinchMotor = new Talon(1, 8);
 	LiveWindow.addActuator("Catapult", "Winch Motor", (Talon) catapultWinchMotor);
