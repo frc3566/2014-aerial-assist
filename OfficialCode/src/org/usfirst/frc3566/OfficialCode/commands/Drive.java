@@ -50,7 +50,7 @@ public class  Drive extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if (distance > 0) {
-            return (Robot.driveTrain.getEncoder() - initialReading) > (distance * RobotConstants.ENCODER_TICKS_PER_FOOT);
+            return (Robot.driveTrain.getEncoder() - initialReading) >= (distance * RobotConstants.ENCODER_TICKS_PER_FOOT);
         } else {
             return false;
         }
