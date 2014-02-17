@@ -34,9 +34,9 @@ public class RobotConstants {
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 2.5; // seconds
     
     public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, FIXME WAG
-    public static final double DOGBOX_ENGAGE_SPEED = 0.1; // percentage of full speed, FIXME WAG
-    public static final double DOGBOX_DISENGAGE_SPEED = -1.0; // percentage of full speed, FIXME WAG
-    public static final double DOGBOX_DISENAGE_TIME = 60.0 /*seconds*/ / 72.0 /*rpm*/ / 12.0/*fraction of turn*/ * (1.0 / Math.abs(DOGBOX_DISENGAGE_SPEED)); // turn 1/2 totation
+    public static final double DOGBOX_ENGAGE_SPEED = -0.4; // percentage of full speed, FIXME WAG
+    public static final double DOGBOX_DISENGAGE_SPEED = 1.0; // percentage of full speed, FIXME WAG
+    public static final double DOGBOX_DISENAGE_TIME = 60.0/*seconds*/ / 72.0/*rpm*/ / 12.0/*fraction of turn*/ * (1.0 / Math.abs(DOGBOX_DISENGAGE_SPEED)); // turn 1/2 totation
     
     public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 5.0; // feet, FIXME WAG
     

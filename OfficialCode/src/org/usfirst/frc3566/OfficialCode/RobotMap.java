@@ -79,7 +79,7 @@ public class RobotMap {
         elToroElevator = new Talon(1, 7);
 	LiveWindow.addActuator("El Toro", "Elevator", (Talon) elToroElevator);
         
-        elToroUpperLimit = new DigitalInput(1, 10);
+        elToroUpperLimit = new DigitalInput(1, 13);
 	LiveWindow.addSensor("El Toro", "Upper Limit", elToroUpperLimit);
         
         elToroLowerLimit = new DigitalInput(1, 9);
@@ -91,7 +91,7 @@ public class RobotMap {
         catapultCatapultReadyLimit = new DigitalInput(1, 14);
 	LiveWindow.addSensor("Catapult", "Catapult Ready Limit", catapultCatapultReadyLimit);
         
-        dogboxEngagedLimit = new DigitalInput(1, 3);
+        dogboxEngagedLimit = new DigitalInput(1, 10);
 	LiveWindow.addSensor("Dogbox", "Engaged Limit", dogboxEngagedLimit);
         
         dogboxClutch = new Talon(1, 9);

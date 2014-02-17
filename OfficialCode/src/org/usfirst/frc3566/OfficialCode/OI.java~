@@ -71,8 +71,6 @@ public class OI {
         SmartDashboard.putData("Prepare Catapult", new PrepareCatapult());
         SmartDashboard.putData("Lower El Toro", new LowerElToro());
         SmartDashboard.putData("Raise El Toro", new RaiseElToro());
-        SmartDashboard.putData("Lower El Toro Completely", new LowerElToroCompletely());
-        SmartDashboard.putData("Raise El Toro Completely", new RaiseElToroCompletely());
         SmartDashboard.putData("Vomit Ball", new VomitBall());
         SmartDashboard.putData("Stop Twirling El Toro", new StopTwirlingElToro());
         SmartDashboard.putData("Twirl El Toro Inward", new TwirlElToroInward());
