@@ -49,20 +49,10 @@ public class AutonomousCommand extends CommandGroup {
         if (SmartDashboard.getNumber("/RoboRealm/BLOBS(3)", -1) > 0) {
             RobotMap.driveTrainLeftFrontEncoder.reset();
             addParallel(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
-            while(RobotMap.driveTrainLeftFrontEncoder.get() < RobotConstants.ENCODER_TICKS_PER_FOOT * RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL) {
-                // do nothing
-            }
-            addParallel(new FireCatapult());
+            addParallel(new FireCatapultAtDistance(RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL));
         } else {
             RobotMap.driveTrainLeftFrontEncoder.reset();
             addParallel(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
-            
-            // Nota bene that this retains the option of firing while in motion
-            // at the cold goal, if we fire from a distance shorter than that
-            // which we are driving
-            while(RobotMap.driveTrainLeftFrontEncoder.get() < RobotConstants.ENCODER_TICKS_PER_FOOT * RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_COLD_GOAL) {
-                // do nothing
-            }
             addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL));
             addSequential(new FireCatapult());
         }

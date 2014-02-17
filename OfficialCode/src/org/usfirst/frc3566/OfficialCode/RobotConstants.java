@@ -42,6 +42,8 @@ public class RobotConstants {
     public static final double DOGBOX_DISENGAGE_SPEED = -1.0; // percentage of full speed, FIXME WAG
     public static final double DOGBOX_DISENAGE_TIME = 60.0 /*seconds*/ / 72.0 /*rpm*/ / 2.0 * (1.0 / Math.abs(DOGBOX_DISENGAGE_SPEED)); // turn 1/2 totation
     
+    public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 5.0; // feet, FIXME WAG
+    
     public static final boolean DEFAULT_LIMIT_CLOSED = true; // seems like default-open is a fine assumption, no?
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
     public static final boolean EL_TORO_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
