@@ -40,6 +40,7 @@ public class DriveTrain extends PIDSubsystem {
         // setSetpoint() -  Sets where the PID controller should move the system
         //                  to
         // enable() - Enables the PID controller.
+        leftFrontEncoder.reset();
     }
     
     public void initDefaultCommand() {
