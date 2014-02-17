@@ -34,7 +34,7 @@ public class  EngageDogbox extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         // FIXME we need to work out the encoder/limit switch sitch here!
-        return true;
+        return Robot.catapult.dogboxEngaged();
     }
     // Called once after isFinished returns true
     protected void end() {

@@ -49,14 +49,20 @@ public class Catapult extends Subsystem {
     }
     
     public void disengageDogbox() {
-        // need to know where the clutch limit switch is and if we have an encoder
+        dogboxEngageMotor.set(RobotConstants.WINCH_DISENGAGE_SPEED);
     }
     
     public void engageDogbox() {
-        // need to know where the clutch limit switch is and if we have an encoder
+        if (!dogboxEngaged()) {
+            dogboxEngageMotor.set(RobotConstants.WINCH_ENGAGE_SPEED);
+        }
     }
     
     public void stopDogbox() {
         dogboxEngageMotor.set(0);
+    }
+    
+    public boolean dogboxEngaged() {
+        return dogboxEngageLimit.get() == RobotConstants.DOGBOX_ENGAGE_LIMIT_CLOSED;
     }
 }
