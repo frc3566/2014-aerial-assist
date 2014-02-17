@@ -21,7 +21,7 @@ import org.usfirst.frc3566.OfficialCode.RobotConstants;
 public class  PauseForDistance extends Command {
 
     private double distance = RobotConstants.DRIVETRAIN_DISTANCE_TO_FULL_SPEED;
-    private int start;
+    private int initialReading;
     
     public PauseForDistance() {
         // Use requires() here to declare subsystem dependencies
@@ -39,7 +39,7 @@ public class  PauseForDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        start = Robot.driveTrain.getEncoder();
+        initialReading = Robot.driveTrain.getEncoder();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -48,7 +48,7 @@ public class  PauseForDistance extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (start - Robot.driveTrain.getEncoder()) >= (RobotConstants.ENCODER_TICKS_PER_FOOT * distance);
+        return (initialReading - Robot.driveTrain.getEncoder()) >= (RobotConstants.ENCODER_TICKS_PER_FOOT * distance);
     }
 
     // Called once after isFinished returns true
