@@ -38,9 +38,9 @@ public class RobotConstants {
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 2.5; // seconds
     
     public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, FIXME WAG
-    public static final double WINCH_ENGAGE_SPEED = 0.1; // percentage of full speed, FIXME WAG
-    public static final double WINCH_DISENGAGE_SPEED = -1.0; // percentage of full speed, FIXME WAG
-    public static final double DOGBOX_DISENAGE_TIME = 60.0 /*seconds*/ / 72.0 /*rpm*/ / 2.0 * (1.0 / Math.abs(WINCH_DISENGAGE_SPEED)); // turn 1/2 totation
+    public static final double DOGBOX_ENGAGE_SPEED = 0.1; // percentage of full speed, FIXME WAG
+    public static final double DOGBOX_DISENGAGE_SPEED = -1.0; // percentage of full speed, FIXME WAG
+    public static final double DOGBOX_DISENAGE_TIME = 60.0 /*seconds*/ / 72.0 /*rpm*/ / 2.0 * (1.0 / Math.abs(DOGBOX_DISENGAGE_SPEED)); // turn 1/2 totation
     
     public static final boolean DEFAULT_LIMIT_CLOSED = true; // seems like default-open is a fine assumption, no?
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;

@@ -49,12 +49,12 @@ public class Catapult extends Subsystem {
     }
     
     public void disengageDogbox() {
-        dogboxEngageMotor.set(RobotConstants.WINCH_DISENGAGE_SPEED);
+        dogboxEngageMotor.set(RobotConstants.DOGBOX_DISENGAGE_SPEED);
     }
     
     public void engageDogbox() {
         if (!dogboxEngaged()) {
-            dogboxEngageMotor.set(RobotConstants.WINCH_ENGAGE_SPEED);
+            dogboxEngageMotor.set(RobotConstants.DOGBOX_ENGAGE_SPEED);
         }
     }
     
