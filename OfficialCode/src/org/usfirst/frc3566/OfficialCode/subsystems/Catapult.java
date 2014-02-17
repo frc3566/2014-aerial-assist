@@ -12,6 +12,7 @@ import org.usfirst.frc3566.OfficialCode.RobotMap;
 import org.usfirst.frc3566.OfficialCode.commands.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc3566.OfficialCode.RobotConstants;
 /**
  *
  */
@@ -31,5 +32,31 @@ public class Catapult extends Subsystem {
 	
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public boolean catapultReady() {
+        return catapultLimit.get() == RobotConstants.CATAPULT_LIMIT_CLOSED;
+    }
+    
+    public void windWinch() {
+        if (!catapultReady()) {
+            winchMotor.set(RobotConstants.WINCH_WIND_SPEED);
+        }
+    }
+    
+    public void stopWindingWinch() {
+        winchMotor.set(0);
+    }
+    
+    public void disengageDogbox() {
+        // need to know where the clutch limit switch is and if we have an encoder
+    }
+    
+    public void engageDogbox() {
+        // need to know where the clutch limit switch is and if we have an encoder
+    }
+    
+    public void stopDogbox() {
+        dogboxEngageMotor.set(0);
     }
 }

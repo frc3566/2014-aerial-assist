@@ -11,7 +11,6 @@ package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3566.OfficialCode.Robot;
 import org.usfirst.frc3566.OfficialCode.RobotConstants;
-import org.usfirst.frc3566.OfficialCode.RobotMap;
 /**
  *
  */
@@ -28,8 +27,7 @@ public class  DisengageDogbox extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-        RobotMap.catapultDogboxEngageEncoder.reset();
-        RobotMap.catapultDogboxEngageMotor.set(RobotConstants.WINCH_DISENGAGE_SPEED);
+        Robot.catapult.disengageDogbox();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
@@ -37,11 +35,12 @@ public class  DisengageDogbox extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return RobotMap.catapultDogboxEngageEncoder.get() == RobotConstants.WINCH_ENGAGE_ARC;
+        // FIXME we need to figure out the encoder/limit switch sitch here!
+        return true;
     }
     // Called once after isFinished returns true
     protected void end() {
-        RobotMap.catapultDogboxEngageMotor.set(0);
+        Robot.catapult.stopDogbox();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
