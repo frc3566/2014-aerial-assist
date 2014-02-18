@@ -28,7 +28,8 @@ public class  JoystickElToro extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.elToro.lower(-Robot.oi.xBoxController.getY(GenericHID.Hand.kLeft));
+        //Uses LT for Down and RT for Up.
+        Robot.elToro.lower(-Robot.oi.xBoxController.getRawAxis(3));
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
