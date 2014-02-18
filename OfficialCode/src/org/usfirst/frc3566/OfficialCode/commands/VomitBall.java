@@ -37,8 +37,8 @@ public class VomitBall extends CommandGroup {
         // arm.
         addSequential(new TwirlElToroInward());
         addSequential(new RaiseElToro());
-        addSequential(new LowerElToro());
         addSequential(new Pause(RobotConstants.EL_TORO_TIME_TO_VOMIT_BALL));
+        addSequential(new LowerElToro());
         addSequential(new StopTwirlingElToro());
     }
 }

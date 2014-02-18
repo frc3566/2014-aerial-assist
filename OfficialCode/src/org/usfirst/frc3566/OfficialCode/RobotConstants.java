@@ -18,9 +18,9 @@ public class RobotConstants {
     public static final double ENCODER_TICKS_PER_FOOT = ENCODER_TICKS_PER_REVOLUTION * (MECANUM_WHEEL_CIRCUMFERENCE / 12.0);
     
     // things we need to calculate carefully! Maybe even _test_!
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = 6.0; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = 5.0; // feet from start
     public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL = 12.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL = 5.0; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL = 4.0; // feet from start
     public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_COLD_GOAL = 12.0; // feet from start
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL = 1.0; // percentage of full speed
@@ -31,7 +31,8 @@ public class RobotConstants {
     public static final double EL_TORO_LOWER_SPEED = 0.5;
     public static final double EL_TORO_TWIRL_INWARD_SPEED = 1.0; // percentage of full speed, FIXME WAG
     public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -1.0; // percentage of full speed, FIXME WAG
-    public static final double EL_TORO_TIME_TO_VOMIT_BALL = 2.5; // seconds
+    public static final double EL_TORO_TIME_TO_VOMIT_BALL = 0.1; // seconds
+    public static final double EL_TORO_PICK_UP_BALL_DELAY = 0.2; // seconds
     
     public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, FIXME WAG
     public static final double DOGBOX_ENGAGE_SPEED = 1.0; // percentage of full speed, FIXME WAG
