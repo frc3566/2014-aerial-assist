@@ -32,7 +32,7 @@ public class RobotConstants {
     public static final double EL_TORO_TWIRL_INWARD_SPEED = 1.0; // percentage of full speed, FIXME WAG
     public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -1.0; // percentage of full speed, FIXME WAG
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 0.1; // seconds
-    public static final double EL_TORO_PICK_UP_BALL_DELAY = 0.2; // seconds
+    public static final double EL_TORO_PICK_UP_BALL_DELAY = 0.3; // seconds
     
     public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, FIXME WAG
     public static final double DOGBOX_ENGAGE_SPEED = 1.0; // percentage of full speed, FIXME WAG
