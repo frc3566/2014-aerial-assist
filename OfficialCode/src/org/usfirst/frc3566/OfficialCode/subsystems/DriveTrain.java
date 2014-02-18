@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3566.OfficialCode.OI;
 /**
  *
@@ -85,5 +86,9 @@ public class DriveTrain extends PIDSubsystem {
     
     public void stop() {
         mecanum.stopMotor();
+    }
+    
+    public void monitor() {
+        SmartDashboard.putData("Left Front Encoder", leftFrontEncoder);
     }
 }

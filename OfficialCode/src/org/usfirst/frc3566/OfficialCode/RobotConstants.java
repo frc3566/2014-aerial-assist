@@ -40,9 +40,9 @@ public class RobotConstants {
     
     public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 5.0; // feet, FIXME WAG
     
-    public static final boolean DEFAULT_LIMIT_CLOSED = true; // seems like default-open is a fine assumption, no?
-    public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
-    public static final boolean EL_TORO_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
-    public static final boolean CATAPULT_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
-    public static final boolean DOGBOX_ENGAGE_LIMIT_CLOSED = DEFAULT_LIMIT_CLOSED;
+    public static final boolean DEFAULT_LIMIT_OPEN = true;
+    public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
+    public static final boolean EL_TORO_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
+    public static final boolean CATAPULT_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
+    public static final boolean DOGBOX_ENGAGE_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
 }
