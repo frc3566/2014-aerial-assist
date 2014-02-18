@@ -28,7 +28,7 @@ public class  CreepDrive extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.driveTrain.joystickDrive(Robot.oi, RobotConstants.DRIVETRAIN_CREEP_SPEED);
+        Robot.driveTrain.joystickDrive(Robot.oi, RobotConstants.DRIVETRAIN_CREEP_SPEED, RobotConstants.DRIVETRAIN_CREEP_TURN);
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

@@ -38,7 +38,10 @@ public class RobotConstants {
     
     public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 2.5; // feet, FIXME WAG
     public static final double DRIVETRAIN_NORMAL_SPEED = 1.0; // percentage of full speed
-    public static final double DRIVETRAIN_CREEP_SPEED = 0.25 * DRIVETRAIN_NORMAL_SPEED; // percentage of full speed;
+    public static final double DRIVETRAIN_NORMAL_TURN = 1.0; // percentage of full speed
+    public static final double DRIVETRAIN_CREEP_FACTOR = 0.25;
+    public static final double DRIVETRAIN_CREEP_SPEED = DRIVETRAIN_CREEP_FACTOR * DRIVETRAIN_NORMAL_SPEED; // percentage of full speed;
+    public static final double DRIVETRAIN_CREEP_TURN = DRIVETRAIN_CREEP_FACTOR * DRIVETRAIN_NORMAL_TURN; // percentage of full speed;
     
     public static final boolean DEFAULT_LIMIT_OPEN = false;
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
