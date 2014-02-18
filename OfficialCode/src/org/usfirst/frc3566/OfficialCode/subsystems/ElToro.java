@@ -69,7 +69,7 @@ public class ElToro extends Subsystem {
     
     public void twirl(double speed) {
         leftArm.set(speed);
-        rightArm.set(speed);
+        rightArm.set(-speed);
     }
     
     public void twirlInward() {
