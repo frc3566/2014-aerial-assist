@@ -16,6 +16,7 @@ import org.usfirst.frc3566.OfficialCode.RobotConstants;
  */
 public class  LowerElToro extends Command {
     private double speed = RobotConstants.EL_TORO_LOWER_SPEED;
+    private double time = -1;
     
     public LowerElToro() {
         // Use requires() here to declare subsystem dependencies
@@ -27,11 +28,20 @@ public class  LowerElToro extends Command {
     }
     
     public LowerElToro(double percentageOfFullSpeed){
-        this.speed = percentageOfFullSpeed;
+        speed = percentageOfFullSpeed;
         requires(Robot.elToro);
     }
+    
+    public LowerElToro(double percentageOfFullSpeed, double timeInSeconds) {
+        speed = percentageOfFullSpeed;
+        time = timeInSeconds;
+    }
+    
     // Called just before this Command runs the first time
     protected void initialize() {
+        if (time > 0) {
+            setTimeout(time);
+        }
         Robot.elToro.lower(speed);
     }
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +50,7 @@ public class  LowerElToro extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.elToro.atLowerLimit();
+        return Robot.elToro.atLowerLimit() || (time > 0 && isTimedOut());
     }
     // Called once after isFinished returns true
     protected void end() {

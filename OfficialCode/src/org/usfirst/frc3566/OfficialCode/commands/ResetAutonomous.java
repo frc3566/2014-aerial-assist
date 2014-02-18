@@ -11,6 +11,7 @@
 
 package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import org.usfirst.frc3566.OfficialCode.RobotConstants;
 
 /**
  *
@@ -36,6 +37,6 @@ public class ResetAutonomous extends CommandGroup {
         // arm.
         
         addSequential(new PrepareCatapult());
-        addSequential(new RaiseElToro());
+        addSequential(new RaiseElToro(RobotConstants.EL_TORO_RAISE_SPEED, RobotConstants.AUTONOMOUS_EL_TORO_RESET_DELAY));
     }
 }

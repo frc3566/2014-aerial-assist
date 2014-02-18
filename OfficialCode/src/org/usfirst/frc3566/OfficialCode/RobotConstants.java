@@ -25,21 +25,22 @@ public class RobotConstants {
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL = 2.0; // seconds
-    public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = -0.35; // percentage of full speed
+    public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 0.35; // percentage of full speed, MUST be positive
+    public static final double AUTONOMOUS_EL_TORO_RESET_DELAY = 0.25; // seconds, FIXME WAG
     
-    public static final double EL_TORO_RAISE_SPEED = -0.5;
-    public static final double EL_TORO_LOWER_SPEED = 0.5;
-    public static final double EL_TORO_TWIRL_INWARD_SPEED = 1.0; // percentage of full speed, FIXME WAG
-    public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -1.0; // percentage of full speed, FIXME WAG
+    public static final double EL_TORO_RAISE_SPEED = -0.5; // percentage of full speed, MUST be negative
+    public static final double EL_TORO_LOWER_SPEED = 0.5; // percentage of full speed, MUST be positive
+    public static final double EL_TORO_TWIRL_INWARD_SPEED = 1.0; // percentage of full speed, MUST be positive
+    public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -1.0; // percentage of full speed, MUST be negative
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 0.1; // seconds
     public static final double EL_TORO_PICK_UP_BALL_DELAY = 0.3; // seconds
     
-    public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, FIXME WAG
-    public static final double DOGBOX_ENGAGE_SPEED = 1.0; // percentage of full speed, FIXME WAG
-    public static final double DOGBOX_DISENGAGE_SPEED = -1.0; // percentage of full speed, FIXME WAG
+    public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, MUST be positive
+    public static final double DOGBOX_ENGAGE_SPEED = 1.0; // percentage of full speed, MUST be positive
+    public static final double DOGBOX_DISENGAGE_SPEED = -1.0; // percentage of full speed, MUST be negative
     public static final double DOGBOX_DISENAGE_TIME = 60.0/*seconds*/ / 72.0/*rpm*/ / 12.0/*fraction of turn*/ * (1.0 / Math.abs(DOGBOX_DISENGAGE_SPEED)); // turn 1/2 totation
     
-    public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 5.0; // feet, FIXME WAG
+    public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 2.5; // feet, FIXME WAG
     
     public static final boolean DEFAULT_LIMIT_OPEN = false;
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
