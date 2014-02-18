@@ -11,11 +11,6 @@ package org.usfirst.frc3566.OfficialCode;
  * @author seth
  */
 public class RobotConstants {
-    // things we need to measure precisely!
-    public static final double TIME_TO_FIRE_CATAPULT = 1.0; // seconds;
-    public static final double MECANUM_WHEEL_CIRCUMFERENCE = Math.PI * 6.0; // inches (TODO double-check this math!)
-    public static final int ENCODER_TICKS_PER_REVOLUTION = 360;
-    public static final double ENCODER_TICKS_PER_FOOT = ENCODER_TICKS_PER_REVOLUTION * (MECANUM_WHEEL_CIRCUMFERENCE / 12.0);
     
     // things we need to calculate carefully! Maybe even _test_!
     public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = 5.0; // feet from start
@@ -35,6 +30,7 @@ public class RobotConstants {
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 0.1; // seconds
     public static final double EL_TORO_PICK_UP_BALL_DELAY = 0.3; // seconds
     
+    public static final double CATAPULT_TIME_TO_FIRE = 0.1; // seconds;
     public static final double WINCH_WIND_SPEED = 1.0; // percentage of full speed, MUST be positive
     public static final double DOGBOX_ENGAGE_SPEED = 1.0; // percentage of full speed, MUST be positive
     public static final double DOGBOX_DISENGAGE_SPEED = -1.0; // percentage of full speed, MUST be negative

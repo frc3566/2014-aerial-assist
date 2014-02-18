@@ -39,7 +39,7 @@ public class FireCatapult extends CommandGroup {
         addSequential(new LowerElToro());
         addSequential(new PrepareCatapult()); // if, as is the case in autonomous, we're not already "set"
         addSequential(new DisengageDogbox());
-        addSequential(new Pause(RobotConstants.TIME_TO_FIRE_CATAPULT));
+        addSequential(new Pause(RobotConstants.CATAPULT_TIME_TO_FIRE));
         addSequential(new PrepareCatapult());
     }
 }
