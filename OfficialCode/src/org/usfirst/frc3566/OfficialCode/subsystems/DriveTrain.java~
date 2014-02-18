@@ -77,8 +77,16 @@ public class DriveTrain extends PIDSubsystem {
         mecanum.mecanumDrive_Polar(oi.rightJoy.getMagnitude(), oi.rightJoy.getDirectionDegrees(), oi.rightJoy.getZ());
    }
     
-    public int getEncoder() {
+    public int getTicks() {
         return leftFrontEncoder.get();
+    }
+    
+    public double getDistance() {
+        return leftFrontEncoder.getDistance();
+    }
+    
+    public void reset() {
+        leftFrontEncoder.reset();
     }
     
     public void cartesian(double x, double y, double rotation, double gyroAngle) {
@@ -86,7 +94,11 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void stop() {
-        mecanum.stopMotor();
+        leftFront.set(0);
+        rightFront.set(0);
+        leftRear.set(0);
+        rightRear.set(0);
+        // mecanum.stopMotor();
     }
     
     public void monitor() {

@@ -37,6 +37,8 @@ public class RobotConstants {
     public static final double DOGBOX_DISENAGE_TIME = 60.0/*seconds*/ / 72.0/*rpm*/ / 12.0/*fraction of turn*/ * (1.0 / Math.abs(DOGBOX_DISENGAGE_SPEED)); // turn 1/2 totation
     
     public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 2.5; // feet, FIXME WAG
+    public static final double DRIVETRAIN_NORMAL_SPEED = 1.0; // percentage of full speed
+    public static final double DRIVETRAIN_CREEP_SPEED = 0.25 * DRIVETRAIN_NORMAL_SPEED; // percentage of full speed;
     
     public static final boolean DEFAULT_LIMIT_OPEN = false;
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
