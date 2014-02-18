@@ -40,16 +40,23 @@ public class AutonomousCommand extends CommandGroup {
         
         addParallel(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
 
-        // FIXME this needs to be done with RoboRealm running, so that we can
-        // figure out exactly what our "is the goal hot" test is
-        // This example assumes that if we can't find the second blob's center
-        // of gravity x-coordinate, then the goal is not hot -- which works if
-        // we're looking at the right-hand goal and the blobs are sorted by
-        // x-coordinate -- we probably  need to be MORE careful than that
+        /* In RoboRealm, we're sorting our Blobs by Y-coordinate (of their
+         * center of gravity). Which means the first blob (BLOBS(0), BLOBS(1))
+         * will be the horizontal vision target (lower Y value, closer to the
+         * top of the screen) and the second blob (BLOBS(2), BLOBS(3)) (higher
+         * Y value, closer to the bottom of the screen) will be the vertical
+         * vision target...
+         * 
+         * BUT, if there is only one blob, then we don't have the horizontal
+         * vision target... meaning we're looking at the COLD target.
+         */
+        // if we're looking at the hot goal
         if (SmartDashboard.getNumber("/RoboRealm/BLOBS(3)", -1) > 0) {
             RobotMap.driveTrainLeftFrontEncoder.reset();
             addParallel(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
             addParallel(new FireCatapultAtDistance(RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL));
+            
+        // ...otherwise, we're looking at the cold goal
         } else {
             RobotMap.driveTrainLeftFrontEncoder.reset();
             addParallel(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
