@@ -39,21 +39,16 @@ public class ElToro extends Subsystem {
     }
     
     public void raise() {
-        if (!atUpperLimit()) {
-            elevator.set(RobotConstants.EL_TORO_RAISE_SPEED);
-        }
+        elevator.set(RobotConstants.EL_TORO_RAISE_SPEED);
     }
     
     public void lower(double speed) {
-        if (!atLowerLimit()) {
-            elevator.set(speed);
-        }
+        elevator.set(speed);
     }
     
     public void lower() {
         lower(RobotConstants.EL_TORO_LOWER_SPEED);
     }
-    
     
     public void stop() {
         elevator.set(0);

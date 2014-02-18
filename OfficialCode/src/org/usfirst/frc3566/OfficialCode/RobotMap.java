@@ -64,7 +64,7 @@ public class RobotMap {
         driveTrainMecanum.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
         driveTrainLeftFrontEncoder = new Encoder(1, 1, 1, 2, false, EncodingType.k4X);
 	LiveWindow.addSensor("DriveTrain", "LeftFrontEncoder", driveTrainLeftFrontEncoder);
-        driveTrainLeftFrontEncoder.setDistancePerPulse(1.0);
+        driveTrainLeftFrontEncoder.setDistancePerPulse(0.0523598333333333);
         driveTrainLeftFrontEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
         driveTrainLeftFrontEncoder.start();
         driveTrainUltrasonic = new Ultrasonic(1, 11, 1, 12);

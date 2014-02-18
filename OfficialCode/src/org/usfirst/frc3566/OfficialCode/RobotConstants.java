@@ -27,8 +27,8 @@ public class RobotConstants {
     public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL = 2.0; // seconds
     public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = -0.35; // percentage of full speed
     
-    public static final double EL_TORO_RAISE_SPEED = -1.0;
-    public static final double EL_TORO_LOWER_SPEED = 1.0;
+    public static final double EL_TORO_RAISE_SPEED = -0.5;
+    public static final double EL_TORO_LOWER_SPEED = 0.5;
     public static final double EL_TORO_TWIRL_INWARD_SPEED = 1.0; // percentage of full speed, FIXME WAG
     public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -1.0; // percentage of full speed, FIXME WAG
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 2.5; // seconds
@@ -40,7 +40,7 @@ public class RobotConstants {
     
     public static final double DRIVETRAIN_DISTANCE_TO_FULL_SPEED = 5.0; // feet, FIXME WAG
     
-    public static final boolean DEFAULT_LIMIT_OPEN = true;
+    public static final boolean DEFAULT_LIMIT_OPEN = false;
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
     public static final boolean EL_TORO_UPPER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
     public static final boolean CATAPULT_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
