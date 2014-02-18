@@ -75,7 +75,7 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void joystickDrive(OI oi, double speedAdjustment, double turnAdjustment) {
-        mecanum.mecanumDrive_Polar(oi.rightJoy.getMagnitude() * speedAdjustment, oi.rightJoy.getDirectionDegrees() * turnAdjustment, oi.rightJoy.getZ());
+        mecanum.mecanumDrive_Polar(oi.Joystick.getMagnitude() * speedAdjustment, oi.Joystick.getDirectionDegrees() * turnAdjustment, oi.Joystick.getZ());
    }
     
     public void joystickDrive(OI oi)
