@@ -14,13 +14,13 @@ public class RobotConstants {
     
     // things we need to calculate carefully! Maybe even _test_!
     public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = 5.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL = 12.0; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL = 5.0; // feet from start
     public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL = 4.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_COLD_GOAL = 12.0; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_COLD_GOAL = 4.0; // feet from start
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL = 2.0; // seconds
-    public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 0.35; // percentage of full speed, MUST be positive
+    public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 0.30; // percentage of full speed, MUST be positive
     public static final double AUTONOMOUS_EL_TORO_RESET_DELAY = 0.25; // seconds, FIXME WAG
     
     public static final double EL_TORO_RAISE_SPEED = -0.5; // percentage of full speed, MUST be negative

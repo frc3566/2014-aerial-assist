@@ -11,6 +11,7 @@ package org.usfirst.frc3566.OfficialCode.commands;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc3566.OfficialCode.Robot;
+    // Make this return true when this Command no longer needs to run execute()
 /**
  *
  */
@@ -30,23 +31,19 @@ public class  JoystickElToro extends Command {
     protected void execute() {
         //Uses Left Joystick Y-Axis
         if (Math.abs(Robot.oi.xBoxController.getRawAxis(2))>0.2){      
-             Robot.elToro.lower(-Robot.oi.xBoxController.getRawAxis(2));
+             Robot.elToro.lower(Robot.oi.xBoxController.getRawAxis(2));
         } else {
              Robot.elToro.stop();
         }
-        
     }
-    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
     }
-    // Called once after isFinished returns true
     protected void end() {
         Robot.elToro.stop();
     }
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
     protected void interrupted() {
         end();
     }
+   
 }
