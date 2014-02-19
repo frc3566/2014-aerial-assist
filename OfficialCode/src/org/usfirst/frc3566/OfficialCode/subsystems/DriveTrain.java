@@ -11,7 +11,6 @@ package org.usfirst.frc3566.OfficialCode.subsystems;
 import org.usfirst.frc3566.OfficialCode.RobotMap;
 import org.usfirst.frc3566.OfficialCode.commands.*;
 import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType; import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -75,9 +74,9 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     public void joystickDrive(OI oi, double speedAdjustment, double turnAdjustment) {
-        mecanum.mecanumDrive_Polar(oi.Joystick.getMagnitude() * speedAdjustment, oi.Joystick.getDirectionDegrees() * turnAdjustment, oi.Joystick.getZ());
-   }
-    
+      //  mecanum.mecanumDrive_Polar(oi.xBoxDriver.getMagnitude() * speedAdjustment, oi.xBoxDriver.getDirectionDegrees() * turnAdjustment, oi.xBoxDriver.getZ());
+       mecanum.mecanumDrive_Cartesian(oi.xBoxDriver.getRawAxis(1),oi.xBoxDriver.getRawAxis(2),oi.xBoxDriver.getRawAxis(4),0);
+    } 
     public void joystickDrive(OI oi)
     {
         joystickDrive(oi, RobotConstants.DRIVETRAIN_NORMAL_SPEED, RobotConstants.DRIVETRAIN_NORMAL_TURN);
