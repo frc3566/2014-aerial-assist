@@ -22,7 +22,7 @@ import org.usfirst.frc3566.OfficialCode.RobotMap;
 public class AutonomousCommand extends CommandGroup {
 
     private NumberArray blobs;
-    
+
     public AutonomousCommand() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -43,35 +43,13 @@ public class AutonomousCommand extends CommandGroup {
 
         addParallel(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
 
-        /* In RoboRealm, we're sorting our Blobs by Y-coordinate (of their
-         * center of gravity). Which means the first blob (BLOBS(0), BLOBS(1))
-         * will be the horizontal vision target (lower Y value, closer to the
-         * top of the screen) and the second blob (BLOBS(2), BLOBS(3)) (higher
-         * Y value, closer to the bottom of the screen) will be the vertical
-         * vision target...
-         * 
-         * BUT, if there is only one blob, then we don't have the horizontal
-         * vision target... meaning we're looking at the COLD target.
-         */
-        blobs = new NumberArray();
-        try {
-            Robot.roboRealm.retrieveValue("BLOBS", blobs);
+        // if we're looking at the hot goal
+        if (Robot.vision.hotTarget()) {
+            hotTarget();
 
-            // if we're looking at the hot goal
-            if (blobs.size() > 2) {
-                hotTarget();
-
-                // ...otherwise, we're looking at the cold goal
-            } else {
-                coldTarget();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            /* FIXME once we know that hot/cold differentiation works, let's
-             * try failing over to either hot or cold target if we get an
-             * exception here!
-             */
-            // hotTarget();
+            // ...otherwise, we're looking at the cold goal
+        } else {
+            coldTarget();
         }
     }
 

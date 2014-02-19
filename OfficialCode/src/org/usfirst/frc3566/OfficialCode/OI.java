@@ -62,6 +62,7 @@ public class OI {
         thumbCreepDrive.whileHeld(new CreepDrive());
         triggerFire = new JoystickButton(Joystick, 1);
         triggerFire.whenReleased(new FireCatapult());
+        
         bTwirlBallOut = new JoystickButton(xBoxController, 2);
         bTwirlBallOut.whileHeld(new TwirlElToroInward());
         xTwirlBallIn = new JoystickButton(xBoxController, 3);
