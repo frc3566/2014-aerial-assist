@@ -57,7 +57,7 @@ public class OI {
    */
     //New declarations
     public Joystick xBoxDriver;
-    public Joystick xBoxAssiter;
+    public Joystick xBoxAssister;
     public JoystickButton AisShoot;
     public JoystickButton YisPrepareCatapult;
     public JoystickButton XisSpinToVomit;
