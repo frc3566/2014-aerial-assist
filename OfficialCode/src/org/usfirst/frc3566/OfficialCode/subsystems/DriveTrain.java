@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3566.OfficialCode.OI;
 import org.usfirst.frc3566.OfficialCode.RobotConstants;
+import java.lang.Math;
 /**
  *
  */
@@ -75,9 +76,14 @@ public class DriveTrain extends PIDSubsystem {
     
     public void joystickDrive(OI oi, double speedAdjustment, double turnAdjustment) {
       //  mecanum.mecanumDrive_Polar(oi.xBoxDriver.getMagnitude() * speedAdjustment, oi.xBoxDriver.getDirectionDegrees() * turnAdjustment, oi.xBoxDriver.getZ());
-      if(Math.abs(oi.xBoxDriver.getRawAxis(1))>.1||Math.abs(oi.xBoxDriver.getRawAxis(2))>.1||Math.abs(oi.xBoxDriver.getRawAxis(4))>.1){
-        mecanum.mecanumDrive_Cartesian(-1*oi.xBoxDriver.getRawAxis(1)*speedAdjustment,-1*oi.xBoxDriver.getRawAxis(2)*speedAdjustment,oi.xBoxDriver.getRawAxis(4)*turnAdjustment,0);
-        }
+        
+        //redefines numbers and sets variables. 
+        double driveX=oi.xBoxDriver.getRawAxis(1);
+        double driveY=oi.xBoxDriver.getRawAxis(2);
+        double driveRot=oi.xBoxDriver.getRawAxis(4);
+        
+        mecanum.mecanumDrive_Cartesian(-1*buffer(driveX)*speedAdjustment,-1*buffer(driveY)*speedAdjustment,buffer(driveRot)*turnAdjustment,0);
+      
     } 
     public void joystickDrive(OI oi)
     {
@@ -110,5 +116,16 @@ public class DriveTrain extends PIDSubsystem {
     
     public void monitor() {
         SmartDashboard.putData("Left Front Encoder", leftFrontEncoder);
+    }
+    //Modifiable equation to match proper buffering
+    public double buffer(double x){
+        if(x<=.1){
+            x=0;
+        }else if(x>.1&&x<=1){
+            x=(.6619*x*x*x-(.00000000000002*x*x+.3685-.0000000000002));
+        }else if(x>1){
+            x=1;
+        }
+        return x;
     }
 }
