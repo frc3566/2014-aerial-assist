@@ -4,3 +4,20 @@
 *.jar
 *.war
 *.ear
+
+# Inventor #
+lockfile.lck
+*.bak
+*/OldVersions/*
+plot.log
+
+# NetBeans #
+*/build/*
+*/nbbuild/*
+*/dist/*
+*/nbdist/*
+*/private/*
+*/nbprivate/*
+*.*~
+*.*.bak
+*.bak.*
