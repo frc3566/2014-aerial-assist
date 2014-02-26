@@ -78,11 +78,21 @@ public class DriveTrain extends PIDSubsystem {
       //  mecanum.mecanumDrive_Polar(oi.xBoxDriver.getMagnitude() * speedAdjustment, oi.xBoxDriver.getDirectionDegrees() * turnAdjustment, oi.xBoxDriver.getZ());
         
         //redefines numbers and sets variables. 
+        
         double driveX=oi.xBoxDriver.getRawAxis(1);
         double driveY=oi.xBoxDriver.getRawAxis(2);
         double driveRot=oi.xBoxDriver.getRawAxis(4);
-        
-        mecanum.mecanumDrive_Cartesian(-1*buffer(driveX)*speedAdjustment,-1*buffer(driveY)*speedAdjustment,buffer(driveRot)*turnAdjustment,0);
+        if(driveX<.15&&driveX>-.15){
+            driveX=0;
+        }
+        if(driveY<.15&&driveY>-.15){
+            driveY=0;
+        }
+        if(driveRot<.15&&driveRot>-.15){
+            driveRot=0;
+        }
+        System.out.println((driveX)+ " " + driveY + " " + driveRot);
+        mecanum.mecanumDrive_Cartesian(-1*buffer(driveX)*speedAdjustment,-1*buffer(driveY)*speedAdjustment,(driveRot)*turnAdjustment,0);
       
     } 
     public void joystickDrive(OI oi)
@@ -119,13 +129,15 @@ public class DriveTrain extends PIDSubsystem {
     }
     //Modifiable equation to match proper buffering
     public double buffer(double x){
-        if(x<=.1){
+        if(x<=.125&&x>=-.125){
             x=0;
-        }else if(x>.1&&x<=1){
-            x=(.6619*x*x*x-(.00000000000002*x*x+.3685-.0000000000002));
-        }else if(x>1){
+        }/*else if((x>.125&&x<1)||x<-.125&&x>-1){
+            x=(.6619*x*x*x-(.00000000000002*x*x+.3685-.0000000000002*x));
+        }else if(x>=1){
             x=1;
-        }
+        }else if(x<=-1){
+            x=-1;
+        }*/
         return x;
     }
 }
