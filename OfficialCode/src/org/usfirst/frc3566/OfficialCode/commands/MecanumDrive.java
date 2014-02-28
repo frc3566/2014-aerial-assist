@@ -29,6 +29,7 @@ public class  MecanumDrive extends Command {
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        System.out.println("blob = " + Robot.vision.blobCount());
         Robot.driveTrain.joystickDrive(Robot.oi);
         //System.out.println(RobotMap.driveTrainUltrasonic.getRangeInches());
     }

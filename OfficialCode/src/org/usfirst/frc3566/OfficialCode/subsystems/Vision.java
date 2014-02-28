@@ -48,7 +48,7 @@ public class Vision extends Subsystem {
          * BUT, if there is only one blob, then we don't have the horizontal
          * vision target... meaning we're looking at the COLD target.
          */
-        return blobCount() > 1;
+        return (blobCount() > 1);
     }
     
     public NumberArray blobCentersOfGravity() {

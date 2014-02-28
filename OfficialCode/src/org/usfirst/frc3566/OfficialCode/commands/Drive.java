@@ -37,11 +37,21 @@ public class  Drive extends Command {
     
     // Called just before this Command runs the first time
     protected void initialize() {
+        this.setTimeout(0.8);
         initialDistanceInInches = Robot.driveTrain.getDistance();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.driveTrain.cartesian(0, speed, 0, 0);
+        if (this.isTimedOut()){
+            Robot.driveTrain.cartesian(0, speed, 0, 0);
+        } else{
+            Robot.driveTrain.cartesian(0, 0.75*speed, 0, 0);
+        }
+        if (distanceInFeet > 0) {
+            if ((Robot.driveTrain.getDistance() - initialDistanceInInches) >= (distanceInFeet * 10.0)){
+             Robot.driveTrain.cartesian(0, 0.45*speed, 0, 0);
+            }
+        }
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
