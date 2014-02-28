@@ -35,11 +35,12 @@ public class  DisengageDogbox extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (!Robot.dogbox.engaged())&&(this.isTimedOut());
+        return (!Robot.dogbox.atLimit())&&(this.isTimedOut());
     }
     // Called once after isFinished returns true
     protected void end() {
         Robot.dogbox.stop();
+        Robot.dogbox.setDisengaged();
     }
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
