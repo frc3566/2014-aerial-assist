@@ -63,7 +63,6 @@ public class AutonomousCommand extends CommandGroup {
         SmartDashboard.putString("Autonomous","Many cold.");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
         addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL));
-        addParallel(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
         addSequential(new FireCatapult());
     }
 }

@@ -100,7 +100,7 @@ public class OI {
         //On Logitech: A is 2, X is 1, B is 3, Y is 4
         //On Xbox: A is 1, B is 2, X is 3, Y is 4
         AisShoot= new JoystickButton(xBoxDriver,1);
-        AisShoot.whenPressed(new DisengageDogbox());
+        AisShoot.whenPressed(new FireCatapult());
         BackisPrepareCatapult= new JoystickButton(xBoxDriver,7);
         BackisPrepareCatapult.whenPressed(new PrepareCatapult());
         XisSpinToVomit= new JoystickButton(xBoxDriver,3);
