@@ -32,6 +32,9 @@ public class Dogbox extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    public boolean engaged() {
+        return engagedLimit.get() == RobotConstants.DOGBOX_ENGAGE_LIMIT_CLOSED;
+    }
     
     public void disengage() {
         clutch.set(RobotConstants.DOGBOX_DISENGAGE_SPEED);
@@ -47,9 +50,6 @@ public class Dogbox extends Subsystem {
         clutch.set(0);
     }
     
-    public boolean engaged() {
-        return engagedLimit.get() == RobotConstants.DOGBOX_ENGAGE_LIMIT_CLOSED;
-    }
     
     public void monitor() {
         SmartDashboard.putData("Dogbox Engaged", engagedLimit);

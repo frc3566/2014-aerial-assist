@@ -27,6 +27,7 @@ public class  EngageDogbox extends Command {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
+        this.setTimeout(0.025);
         Robot.catapult.wind();
         Robot.dogbox.engage();
     }
@@ -35,7 +36,7 @@ public class  EngageDogbox extends Command {
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.dogbox.engaged();
+        return (!Robot.dogbox.engaged())&&(this.isTimedOut());
     }
     // Called once after isFinished returns true
     protected void end() {
