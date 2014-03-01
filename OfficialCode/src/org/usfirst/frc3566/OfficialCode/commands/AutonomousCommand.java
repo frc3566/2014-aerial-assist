@@ -19,6 +19,8 @@ import org.usfirst.frc3566.OfficialCode.RobotConstants;
  */
 public class AutonomousCommand extends CommandGroup {
 
+    private long startTime;
+    
     public AutonomousCommand() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -35,6 +37,9 @@ public class AutonomousCommand extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
+        
+        startTime = System.currentTimeMillis();
+        
         // Are we looking at the hot goal
         if (Robot.vision.hotTarget()) {
             hotTarget();
@@ -54,9 +59,11 @@ public class AutonomousCommand extends CommandGroup {
      * it, the El Toro elbow will knock the ball out of the cradle.)
      */
     private void hotTarget() {
-        SmartDashboard.putString("Autonomous", "Such Hot wow.");
+        SmartDashboard.putString("Autonomous", "Starting HOT at " + (System.currentTimeMillis() - startTime) + " milliseconds");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
+        SmartDashboard.putString("Autonomous1", "Starting el toro lower at " + (System.currentTimeMillis() - startTime) + "milliseconds");
         addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
+        SmartDashboard.putString("Autonomous2", "Firing at " + (System.currentTimeMillis() - startTime) + "milliseconds");
         addSequential(new DisengageDogbox());
         addSequential(new PrepareCatapult());
     }
@@ -70,9 +77,12 @@ public class AutonomousCommand extends CommandGroup {
      * it, the El Toro elbow will knock the ball out of the cradle.)
      */
     private void coldTarget() {
-        SmartDashboard.putString("Autonomous", "Many cold.");
+        SmartDashboard.putString("Autonomous", "Starting COLD at " + (System.currentTimeMillis() - startTime) + " milliseconds");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
+        SmartDashboard.putString("Autonomous1", "Starting el toro lower at " + (System.currentTimeMillis() - startTime) + "milliseconds");
+        addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
         addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL));
+        SmartDashboard.putString("Autonomous2", "Firing at " + (System.currentTimeMillis() - startTime) + "milliseconds");
         addSequential(new DisengageDogbox());
         addSequential(new PrepareCatapult());
     }
