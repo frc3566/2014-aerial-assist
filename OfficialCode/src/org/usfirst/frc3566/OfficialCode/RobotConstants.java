@@ -23,8 +23,8 @@ public class RobotConstants {
     public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 0.30; // percentage of full speed, MUST be positive
     public static final double AUTONOMOUS_EL_TORO_RESET_DELAY = 0.25; // seconds, FIXME WAG
     
-    public static final double EL_TORO_RAISE_SPEED = -0.5; // percentage of full speed, MUST be negative
-    public static final double EL_TORO_LOWER_SPEED = 0.5; // percentage of full speed, MUST be positive
+    public static final double EL_TORO_RAISE_SPEED = -0.80; // percentage of full speed, MUST be negative
+    public static final double EL_TORO_LOWER_SPEED = 0.50; // percentage of full speed, MUST be positive
     public static final double EL_TORO_TWIRL_INWARD_SPEED = 1.0; // percentage of full speed, MUST be positive
     public static final double EL_TORO_TWIRL_OUTWARD_SPEED = -1.0; // percentage of full speed, MUST be negative
     public static final double EL_TORO_TIME_TO_VOMIT_BALL = 0.1; // seconds
