@@ -10,14 +10,12 @@
 package org.usfirst.frc3566.OfficialCode.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import edu.wpi.first.wpilibj.networktables2.type.NumberArray;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc3566.OfficialCode.Robot;
 import org.usfirst.frc3566.OfficialCode.RobotConstants;
-import org.usfirst.frc3566.OfficialCode.RobotMap;
 
 /**
- *
+ * Autonomous code to shoot on the high goal.
  */
 public class AutonomousCommand extends CommandGroup {
 
@@ -32,15 +30,12 @@ public class AutonomousCommand extends CommandGroup {
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
-
         // A command group will require all of the subsystems that each member
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-
-        // if we're looking at the hot goal
-        //addSequential(new RaiseElToro(RobotConstants.EL_TORO_RAISE_SPEED));
+        // Are we looking at the hot goal
         if (Robot.vision.hotTarget()) {
             hotTarget();
 
@@ -50,19 +45,35 @@ public class AutonomousCommand extends CommandGroup {
         }
     }
 
+    /**
+     * Drive the robot forward and fire the ball is fast as possible. Assumes
+     * that the catapult may not be fully wound, but fires from however far the
+     * catapult _is_ wound.
+     *
+     * (The concern is that if we finish winding the catapult with the ball on
+     * it, the El Toro elbow will knock the ball out of the cradle.)
+     */
     private void hotTarget() {
-        SmartDashboard.putString("Autonomous","Such Hot wow.");
+        SmartDashboard.putString("Autonomous", "Such Hot wow.");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
         addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
         addSequential(new DisengageDogbox());
         addSequential(new PrepareCatapult());
     }
 
+    /**
+     * Drive the robot forward, wait a beat, then fire the ball. Assumes that
+     * the catapult may not be fully wound, but fires from however far the
+     * catapult _is_ wound.
+     *
+     * (The concern is that if we finish winding the catapult with the ball on
+     * it, the El Toro elbow will knock the ball out of the cradle.)
+     */
     private void coldTarget() {
-        SmartDashboard.putString("Autonomous","Many cold.");
+        SmartDashboard.putString("Autonomous", "Many cold.");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
         addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL));
-        addSequential(new DisengageDogbox()); 
+        addSequential(new DisengageDogbox());
         addSequential(new PrepareCatapult());
     }
 }
