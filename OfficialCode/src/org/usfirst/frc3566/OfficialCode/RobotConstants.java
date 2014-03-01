@@ -13,10 +13,10 @@ package org.usfirst.frc3566.OfficialCode;
 public class RobotConstants {
     
     // things we need to calculate carefully! Maybe even _test_!
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = 5.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL = 5.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL = 4.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_COLD_GOAL = 4.0; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL = 7.0; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_FIRE_AT_COLD_GOAL = AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL = AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL; // feet from start
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL = 2.0; // seconds

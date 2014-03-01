@@ -48,7 +48,7 @@ public class  Drive extends Command {
             Robot.driveTrain.cartesian(0, 0.8*speed, 0, 0);
         }
         if (distanceInFeet > 0) {
-            if ((Robot.driveTrain.getDistance() - initialDistanceInInches) >= (distanceInFeet * 12.0)){
+            if ((Robot.driveTrain.getDistance() - initialDistanceInInches) >= (distanceInFeet * 12.0/*inches*/)){
              Robot.driveTrain.cartesian(0, 0.55*speed, 0, 0);
             }
         }
@@ -56,7 +56,7 @@ public class  Drive extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         if (distanceInFeet > 0) {
-            return (Robot.driveTrain.getDistance() - initialDistanceInInches) >= (distanceInFeet * 14.0);
+            return (Robot.driveTrain.getDistance() - initialDistanceInInches) >= (distanceInFeet * 12.0/*inches*/);
         } else {
             return false;
         }
