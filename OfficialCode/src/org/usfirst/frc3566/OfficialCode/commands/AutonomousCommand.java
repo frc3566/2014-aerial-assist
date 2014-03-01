@@ -56,13 +56,18 @@ public class AutonomousCommand extends CommandGroup {
         SmartDashboard.putString("Autonomous","Such Hot wow.");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
         addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
-        addParallel(new FireCatapultAtDistance(RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL));
+        // addParallel(new FireCatapultAtDistance(RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL));
+        addSequential(new PauseForDistance(RobotConstants.AUTONOMOUS_DISTANCE_TO_FIRE_AT_HOT_GOAL));;
+        addSequential(new DisengageDogbox());
+        addSequential(new PrepareCatapult());
     }
 
     private void coldTarget() {
         SmartDashboard.putString("Autonomous","Many cold.");
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
         addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL));
-        addSequential(new FireCatapult());
+        //addSequential(new FireCatapult());
+        addSequential(new DisengageDogbox());
+        addSequential(new PrepareCatapult());
     }
 }
