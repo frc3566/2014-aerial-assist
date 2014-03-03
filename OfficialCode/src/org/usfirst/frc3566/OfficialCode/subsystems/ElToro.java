@@ -45,6 +45,7 @@ public class ElToro extends Subsystem {
     
     public void raise() {
         if (!atUpperLimit() && !Robot.catapult.isWinding()) {
+            stopTwirling();
             raise(RobotConstants.EL_TORO_RAISE_SPEED);
         }
     }
