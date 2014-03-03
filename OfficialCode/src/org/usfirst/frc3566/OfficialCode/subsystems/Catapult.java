@@ -43,6 +43,10 @@ public class Catapult extends Subsystem {
         }
     }
     
+    public boolean isWinding() {
+        return winchMotor.get() > 0;
+    }
+    
     public void stop() {
         winchMotor.set(0);
     }

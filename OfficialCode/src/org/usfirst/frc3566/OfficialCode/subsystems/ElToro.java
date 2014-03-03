@@ -14,6 +14,7 @@ import org.usfirst.frc3566.OfficialCode.RobotMap;
 import org.usfirst.frc3566.OfficialCode.commands.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc3566.OfficialCode.Robot;
 import org.usfirst.frc3566.OfficialCode.RobotConstants;
 /**
  *
@@ -43,7 +44,7 @@ public class ElToro extends Subsystem {
     }
     
     public void raise() {
-        if (!atUpperLimit()) {
+        if (!atUpperLimit() && !Robot.catapult.isWinding()) {
             raise(RobotConstants.EL_TORO_RAISE_SPEED);
         }
     }
