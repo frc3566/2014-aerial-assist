@@ -104,6 +104,7 @@ public class OI {
         BackisPrepareCatapult.whenPressed(new PrepareCatapult());
         XisSpinToVomit= new JoystickButton(xBoxDriver,3);
         XisSpinToVomit.whenPressed(new TwirlElToroInward());
+        XisSpinToVomit.whileHeld(new RaiseElToro());
         BisSpinToPickup= new JoystickButton(xBoxDriver,2);
         BisSpinToPickup.whileHeld(new LowerElToro());
         BisSpinToPickup.whileHeld(new TwirlElToroOutward());
