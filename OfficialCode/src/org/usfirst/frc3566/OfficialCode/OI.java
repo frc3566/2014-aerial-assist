@@ -105,7 +105,10 @@ public class OI {
         XisSpinToVomit= new JoystickButton(xBoxDriver,3);
         XisSpinToVomit.whenPressed(new TwirlElToroInward());
         BisSpinToPickup= new JoystickButton(xBoxDriver,2);
-        BisSpinToPickup.whenPressed(new TwirlElToroOutward());
+        BisSpinToPickup.whileHeld(new LowerElToro());
+        BisSpinToPickup.whileHeld(new TwirlElToroOutward());
+        BisSpinToPickup.whenReleased(new StopTwirlingElToro());
+        BisSpinToPickup.whenReleased(new RaiseElToro());
         LBisRaiseElToro= new JoystickButton(xBoxDriver,5);
         LBisRaiseElToro.whileHeld(new RaiseElToro());
         RBisLowerElToro= new JoystickButton(xBoxDriver,6);
