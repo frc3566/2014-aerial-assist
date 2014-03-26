@@ -20,7 +20,7 @@ import org.usfirst.frc3566.OfficialCode.RobotConstants;
 public class AutonomousCommand extends CommandGroup {
 
     private long startTime;
-    
+
     public AutonomousCommand() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -37,9 +37,9 @@ public class AutonomousCommand extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        
+
         startTime = System.currentTimeMillis();
-        
+
         // Are we looking at the hot goal
         if (Robot.vision.hotTarget()) {
             hotTarget();
@@ -51,34 +51,45 @@ public class AutonomousCommand extends CommandGroup {
     }
 
     /**
-     * Drive the robot forward and fire the ball is fast as possible. Assumes
-     * that the catapult may not be fully wound, but fires from however far the
-     * catapult _is_ wound.
-     *
-     * (The concern is that if we finish winding the catapult with the ball on
-     * it, the El Toro elbow will knock the ball out of the cradle.)
+     * Pick up the second ball
      */
-    private void hotTarget() {
-        SmartDashboard.putString("Autonomous", "Starting HOT at " + (System.currentTimeMillis() - startTime) + " milliseconds");
+    private void pickUpSecondBall() {
+        SmartDashboard.putString("Autonomous1", "Picking up Ball 2 at " + (System.currentTimeMillis() - startTime) + " milliseconds");
         addSequential(new TwirlElToroOutward());
-        addParallel(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO,RobotConstants.AUTONOMOUS_TIME_TO_LOWER_EL_TORO));
+        addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO, RobotConstants.AUTONOMOUS_TIME_TO_LOWER_EL_TORO));
         addSequential(new StopTwirlingElToro());
-        
-        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
-        // SmartDashboard.putString("Autonomous1", "Starting el toro lower at " + (System.currentTimeMillis() - startTime) + "milliseconds");
-        //addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
-        
-        //This is very expiramental! Ruh-Row!
-        addSequential(new Drive(0,1,RobotConstants.AUTONOMOUS_SPEED_TO_ROTATE_IF_HOT_GOAL));
+    }
+
+    /**
+     * Launch first the loaded ball and then load and launch the second ball in
+     * quick succession
+     */
+    private void launchBothBalls() {
+        SmartDashboard.putString("Autonomous2", "Firing ball 1 at " + (System.currentTimeMillis() - startTime) + "milliseconds");
         addSequential(new FireCatapult());
-        addSequential(new Pause(.5));
+        SmartDashboard.putString("Autonomous3", "Loading ball 2 at " + (System.currentTimeMillis() - startTime) + "milliseconds");
         addSequential(new TwirlElToroOutward());
         addSequential(new RaiseElToro());
         addParallel(new StopTwirlingElToro());
+        SmartDashboard.putString("Autonomous4", "Firing ball 2 at " + (System.currentTimeMillis() - startTime) + "milliseconds");
         addSequential(new FireCatapult());
-        
-        SmartDashboard.putString("Autonomous2", "Firing at " + (System.currentTimeMillis() - startTime) + "milliseconds");
-        addSequential(new FireCatapult());
+    }
+
+    /**
+     * Drive the robot at the _cold_ goal (so we have time to get there) and
+     * then fire both balls into (what should now be) the _hot_ goal.
+     */
+    private void hotTarget() {
+        SmartDashboard.putString("Autonomous", "Starting HOT at " + (System.currentTimeMillis() - startTime) + " milliseconds");
+
+        pickUpSecondBall();
+
+        // drive _away_ from hot goal and _to_ the cold goal
+        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_SPEED_TO_ROTATE_IF_HOT_GOAL));
+        /// FIXME: we could maybe use the vision system to detect when it becomes hot, assuming that the vision target is in view when we're that close
+        addSequential(new Pause(RobotConstants.AUTONOMOUS_WAIT_FOR_HOT_GOAL_TO_BECOME_COLD));
+
+        launchBothBalls();
     }
 
     /**
@@ -90,38 +101,15 @@ public class AutonomousCommand extends CommandGroup {
      * it, the El Toro elbow will knock the ball out of the cradle.)
      */
     private void coldTarget() {
-    SmartDashboard.putString("Autonomous", "Starting HOT at " + (System.currentTimeMillis() - startTime) + " milliseconds");
-       //NEW AUTON CODE FOR COLD GOAL
-        addSequential(new TwirlElToroOutward());
-        addParallel(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO,RobotConstants.AUTONOMOUS_TIME_TO_LOWER_EL_TORO));
-        addSequential(new StopTwirlingElToro());
-        
-        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
-        // SmartDashboard.putString("Autonomous1", "Starting el toro lower at " + (System.currentTimeMillis() - startTime) + "milliseconds");
-        //addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
-        
-        //This is very expiramental! Ruh-Row!
-        addSequential(new Drive(0,1,RobotConstants.AUTONOMOUS_SPEED_TO_ROTATE_IF_COLD_GOAL));
-        addSequential(new FireCatapult());
-        addSequential(new Pause(.5));
-        addSequential(new TwirlElToroOutward());
-        addSequential(new RaiseElToro());
-        addParallel(new StopTwirlingElToro());
-        addSequential(new FireCatapult());
-        
-        SmartDashboard.putString("Autonomous2", "Firing at " + (System.currentTimeMillis() - startTime) + "milliseconds");
-        addSequential(new FireCatapult());
-        
-       /*OLD AUTON CODE 
-        SmartDashboard.putString("Autonomous", "Starting COLD at " + (System.currentTimeMillis() - startTime) + " milliseconds");   
+        SmartDashboard.putString("Autonomous", "Starting COLD at " + (System.currentTimeMillis() - startTime) + " milliseconds");
+
+        pickUpSecondBall();
+
+        // drive straight at the cold goal and wait for it to become hot
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
-    
-        SmartDashboard.putString("Autonomous1", "Starting el toro lower at " + (System.currentTimeMillis() - startTime) + "milliseconds");
-        //addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO));
-        addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_COLD_GOAL));
-        
-        SmartDashboard.putString("Autonomous2", "Firing at " + (System.currentTimeMillis() - startTime) + "milliseconds");
-        addSequential(new FireCatapult());
-        */
+        /// FIXME: we could maybe use the vision system to detect when it becomes hot, assuming that the vision target is in view when we're that close
+        addSequential(new Pause(RobotConstants.AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT));
+
+        launchBothBalls();
     }
 }
