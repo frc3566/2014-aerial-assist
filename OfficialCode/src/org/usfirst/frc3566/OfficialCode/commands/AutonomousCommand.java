@@ -39,7 +39,9 @@ public class AutonomousCommand extends CommandGroup {
         // arm.
 
         startTime = System.currentTimeMillis();
-
+        
+        hotTarget();
+/*
         // Are we looking at the hot goal
         if (Robot.vision.hotTarget()) {
             hotTarget();
@@ -47,7 +49,7 @@ public class AutonomousCommand extends CommandGroup {
             // ...otherwise, we're looking at the cold goal
         } else {
             coldTarget();
-        }
+        }*/
     }
 
     /**
@@ -82,14 +84,18 @@ public class AutonomousCommand extends CommandGroup {
     private void hotTarget() {
         SmartDashboard.putString("Autonomous", "Starting HOT at " + (System.currentTimeMillis() - startTime) + " milliseconds");
 
-        pickUpSecondBall();
+        //pickUpSecondBall();
 
         // drive _away_ from hot goal and _to_ the cold goal
-        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_SPEED_TO_ROTATE_IF_HOT_GOAL));
+        /* addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL,
+                RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL,
+                RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL)); */
+        addSequential(new Drive(0, RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL));
+        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL, 0, RobotConstants.AUTONOMOUS_DISTANCE_TO_STRAFE_AWAY_FROM_HOT_GOAL));
         /// FIXME: we could maybe use the vision system to detect when it becomes hot, assuming that the vision target is in view when we're that close
         addSequential(new Pause(RobotConstants.AUTONOMOUS_WAIT_FOR_HOT_GOAL_TO_BECOME_COLD));
 
-        launchBothBalls();
+        //launchBothBalls();
     }
 
     /**
@@ -103,13 +109,13 @@ public class AutonomousCommand extends CommandGroup {
     private void coldTarget() {
         SmartDashboard.putString("Autonomous", "Starting COLD at " + (System.currentTimeMillis() - startTime) + " milliseconds");
 
-        pickUpSecondBall();
+        //pickUpSecondBall();
 
         // drive straight at the cold goal and wait for it to become hot
         addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL));
         /// FIXME: we could maybe use the vision system to detect when it becomes hot, assuming that the vision target is in view when we're that close
         addSequential(new Pause(RobotConstants.AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT));
 
-        launchBothBalls();
+        //launchBothBalls();
     }
 }
