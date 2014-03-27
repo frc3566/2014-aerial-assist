@@ -88,7 +88,7 @@ public class DriveTrain extends PIDSubsystem {
         if(driveY<.15&&driveY>-.15){
             driveY=0;
         }
-        if(driveRot<.15&&driveRot>-.15){
+        if(driveRot<.25&&driveRot>-.25){
             driveRot=0;
         }
         System.out.println((driveX)+ " " + driveY + " " + driveRot);
@@ -112,8 +112,8 @@ public class DriveTrain extends PIDSubsystem {
         leftFrontEncoder.reset();
     }
     
-    public void cartesian(double x, double y, double rotation, double gyroAngle) {
-        mecanum.mecanumDrive_Cartesian(x, y, rotation, gyroAngle);
+    public void cartesian(double xPercentageOfFullSpeed, double yPercentageOfFullSpeed, double rotation, double gyroAngle) {
+        mecanum.mecanumDrive_Cartesian(xPercentageOfFullSpeed, yPercentageOfFullSpeed, rotation, gyroAngle);
     }
     
     public void stop() {

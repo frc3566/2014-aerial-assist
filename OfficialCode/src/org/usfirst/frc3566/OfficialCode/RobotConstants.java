@@ -12,16 +12,15 @@ package org.usfirst.frc3566.OfficialCode;
  */
 public class RobotConstants {
     
+    // how many balls are we using in autonomous mode?
+    public static final int AUTONOMOUS_BALLS = 1; // 1 or 2 (until we get further delusions of grandeur)
+    
     // things we need to calculate carefully! Maybe even _test_!
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_COLD_GOAL = 3.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_HOT_GOAL = 4.0; // feet from start
-    public static final double AUTONOMOUS_DISTANCE_TO_STRAFE_AWAY_FROM_HOT_GOAL = 6.0; // feet to the right (times 6ish)
-    public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_HOT_GOAL = 1.0; // percentage of full speed
-    public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_COLD_GOAL = 1.0; // percentage of full speed
-    public static final double AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT = 0.0; // seconds
-    public static final double AUTONOMOUS_WAIT_FOR_HOT_GOAL_TO_BECOME_COLD = 0.0; // seconds
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL = 3.5; // feet from start
+    public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL = 1.0; // percentage of full speed
+    public static final double AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT = 1.0; // seconds
     public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 1.0; // percentage of full speed, MUST be positive
-    public static final double AUTONOMOUS_TIME_TO_LOWER_EL_TORO=0.5; // secondss
+    public static final double AUTONOMOUS_TIME_TO_LOWER_EL_TORO = 0.5; // secondss
     
     public static final double EL_TORO_RAISE_SPEED = -1.0; // percentage of full speed, MUST be negative
     public static final double EL_TORO_LOWER_SPEED = 1.0; // percentage of full speed, MUST be positive
