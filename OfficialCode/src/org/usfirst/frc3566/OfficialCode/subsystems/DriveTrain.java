@@ -46,6 +46,9 @@ public class DriveTrain extends PIDSubsystem {
         //                  to
         // enable() - Enables the PID controller.
         leftFrontEncoder.reset();
+        rightFrontEncoder.reset();
+        leftRearEncoder.reset();
+        rightRearEncoder.reset();
         mecanum.stopMotor();
     }
     
