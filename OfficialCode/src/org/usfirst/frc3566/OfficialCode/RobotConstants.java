@@ -16,7 +16,7 @@ public class RobotConstants {
     public static final int AUTONOMOUS_BALLS = 1; // 1 or 2 (until we get further delusions of grandeur)
     
     // things we need to calculate carefully! Maybe even _test_!
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL = 6.3; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL = 6.1; // feet from start
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT = 3.0; // seconds
     public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 1.0; // percentage of full speed, MUST be positive
