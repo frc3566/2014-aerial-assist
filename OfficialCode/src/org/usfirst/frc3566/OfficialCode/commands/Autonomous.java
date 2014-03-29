@@ -71,9 +71,9 @@ public class Autonomous extends CommandGroup {
         // arm.
         startTime = System.currentTimeMillis();
 
-        if (numberOfBalls == 2) {
-            twoBallSequence();
-        } else {
+       // if (numberOfBalls == 2) {
+          //  twoBallSequence();
+       // } else {
             if (Robot.vision.hotTarget()) {
                 hotTargetSequence();
             } else {
@@ -84,19 +84,20 @@ public class Autonomous extends CommandGroup {
             SmartDashboard.putString(RELOAD, "N/A");
             SmartDashboard.putString(BALL2, "N/A");
         }
-    }
+   // }
 
     /**
      * Pick up the other ball, drive forward and fire both of them. It doesn't
      * matter if the target is hot or cold, since one will go in hot and the
      * other cold, regardless.
      */
-    private void twoBallSequence() {
+ /*   private void twoBallSequence() {
         SmartDashboard.putString(START, "2 Balls @ " + timestamp());
         pickUpSecondBall();
         driveAtGoal();
         fireBothBalls();
     }
+  */  
 
     /**
      * Drive the robot forward and fire the ball is fast as possible. Assumes

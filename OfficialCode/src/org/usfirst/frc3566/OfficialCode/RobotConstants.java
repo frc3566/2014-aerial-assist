@@ -16,9 +16,9 @@ public class RobotConstants {
     public static final int AUTONOMOUS_BALLS = 1; // 1 or 2 (until we get further delusions of grandeur)
     
     // things we need to calculate carefully! Maybe even _test_!
-    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL = 3.5; // feet from start
+    public static final double AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL = 6.3; // feet from start
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL = 1.0; // percentage of full speed
-    public static final double AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT = 1.0; // seconds
+    public static final double AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT = 3.0; // seconds
     public static final double AUTONOMOUS_SPEED_TO_LOWER_EL_TORO = 1.0; // percentage of full speed, MUST be positive
     public static final double AUTONOMOUS_TIME_TO_LOWER_EL_TORO = 0.5; // secondss
     
@@ -42,6 +42,7 @@ public class RobotConstants {
     public static final double DRIVETRAIN_CREEP_FACTOR = 0.25;
     public static final double DRIVETRAIN_CREEP_SPEED = DRIVETRAIN_CREEP_FACTOR * DRIVETRAIN_NORMAL_SPEED; // percentage of full speed;
     public static final double DRIVETRAIN_CREEP_TURN = DRIVETRAIN_CREEP_FACTOR * DRIVETRAIN_NORMAL_TURN; // percentage of full speed;
+    public static final double ENCODER_DISTANCE_PER_PULSE = 0.0523598333333333; // inches
     
     public static final boolean DEFAULT_LIMIT_OPEN = false;
     public static final boolean EL_TORO_LOWER_LIMIT_CLOSED = DEFAULT_LIMIT_OPEN;
