@@ -22,6 +22,7 @@ public class Autonomous extends CommandGroup {
     private long startTime;
 
     private final static String START = "Autonomous Started";
+    private final static String LOWER = "Autonomous Lower Ball 1";
     private final static String PICKUP = "Autonomous 2nd Ball Pick Up";
     private final static String DRIVE = "Autonomous Drive to Goal";
     private final static String PAUSE = "Autonomous Wait for Hot Goal";
@@ -71,9 +72,9 @@ public class Autonomous extends CommandGroup {
         // arm.
         startTime = System.currentTimeMillis();
 
-       // if (numberOfBalls == 2) {
-          //  twoBallSequence();
-       // } else {
+        if (numberOfBalls == 2) {
+            twoBallSequence();
+        } else {
             if (Robot.vision.hotTarget()) {
                 hotTargetSequence();
             } else {
@@ -84,20 +85,19 @@ public class Autonomous extends CommandGroup {
             SmartDashboard.putString(RELOAD, "N/A");
             SmartDashboard.putString(BALL2, "N/A");
         }
-   // }
+    }
 
     /**
      * Pick up the other ball, drive forward and fire both of them. It doesn't
      * matter if the target is hot or cold, since one will go in hot and the
      * other cold, regardless.
      */
- /*   private void twoBallSequence() {
+    private void twoBallSequence() {
         SmartDashboard.putString(START, "2 Balls @ " + timestamp());
         pickUpSecondBall();
         driveAtGoal();
         fireBothBalls();
     }
-  */  
 
     /**
      * Drive the robot forward and fire the ball is fast as possible. Assumes
@@ -109,6 +109,7 @@ public class Autonomous extends CommandGroup {
      */
     private void hotTargetSequence() {
         SmartDashboard.putString(START, "HOT @ " + timestamp());
+        dropBall();
         driveAtGoal();
         SmartDashboard.putString(BALL1, timestamp());
         addSequential(new FireCatapult());
@@ -124,6 +125,7 @@ public class Autonomous extends CommandGroup {
      */
     private void coldTargetSequence() {
         SmartDashboard.putString(START, "COLD @ " + timestamp());
+        dropBall();
         driveAtGoal();
         SmartDashboard.putString(PAUSE, timestamp());
         addSequential(new Pause(RobotConstants.AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT));
@@ -132,12 +134,22 @@ public class Autonomous extends CommandGroup {
     }
     
     /**
+     * Lower balanced ball into the catapult/El Toro "cage" for transport.
+     */
+    private void dropBall() {
+        SmartDashboard.putString(LOWER, timestamp());
+        addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_EL_TORO_LOWER_SPEED_FOR_BALL_DROP, RobotConstants.AUTONOMOUS_EL_TORO_LOWER_TIME_FOR_BALL_DROP));
+        addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_BALL_TO_DROP));
+        addSequential(new RaiseElToro());
+    }
+
+    /**
      * Pick up the second ball, positioned behind the bot.
      */
     private void pickUpSecondBall() {
         SmartDashboard.putString(PICKUP, timestamp());
         addSequential(new TwirlElToroOutward());
-        addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_SPEED_TO_LOWER_EL_TORO, RobotConstants.AUTONOMOUS_TIME_TO_LOWER_EL_TORO));
+        addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_EL_TORO_LOWER_SPEED_FOR_PICK_UP, RobotConstants.AUTONOMOUS_EL_TORO_LOWER_TIME_FOR_PICK_UP));
         addSequential(new StopTwirlingElToro());
     }
 
