@@ -20,8 +20,10 @@ public class RobotConstants {
     public static final double AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL = 1.0; // percentage of full speed
     public static final double AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT = 2.0; // seconds -- was 3.0 before lowering ball was added
     public static final double AUTONOMOUS_EL_TORO_LOWER_SPEED_FOR_BALL_DROP = 1.0; // percentage of full speed
-    public static final double AUTONOMOUS_EL_TORO_LOWER_TIME_FOR_BALL_DROP = 0.5; // seconds
-    public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_BALL_TO_DROP = 0.25; // seconds
+    public static final double AUTONOMOUS_EL_TORO_LOWER_TIME_FOR_BALL_DROP = 0.1; // seconds
+    public static final double AUTONOMOUS_EL_TORO_RAISE_SPEED_FOR_BALL_DROP = 1.0; // seconds
+    public static final double AUTONOMOUS_EL_TORO_RAISE_TIME_FOR_BALL_DROP = 0.1; //seconds;
+    public static final double AUTONOMOUS_TIME_TO_WAIT_FOR_BALL_TO_DROP = 0.05; // seconds
     public static final double AUTONOMOUS_EL_TORO_LOWER_SPEED_FOR_PICK_UP = 1.0; // percentage of full speed, MUST be positive
     public static final double AUTONOMOUS_EL_TORO_LOWER_TIME_FOR_PICK_UP = 0.5; // seconds
     

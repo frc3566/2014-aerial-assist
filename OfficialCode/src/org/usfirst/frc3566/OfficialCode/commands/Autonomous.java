@@ -140,7 +140,7 @@ public class Autonomous extends CommandGroup {
         SmartDashboard.putString(LOWER, timestamp());
         addSequential(new LowerElToro(RobotConstants.AUTONOMOUS_EL_TORO_LOWER_SPEED_FOR_BALL_DROP, RobotConstants.AUTONOMOUS_EL_TORO_LOWER_TIME_FOR_BALL_DROP));
         addSequential(new Pause(RobotConstants.AUTONOMOUS_TIME_TO_WAIT_FOR_BALL_TO_DROP));
-        addSequential(new RaiseElToro());
+        addSequential(new RaiseElToro(RobotConstants.AUTONOMOUS_EL_TORO_RAISE_SPEED_FOR_BALL_DROP, RobotConstants.AUTONOMOUS_EL_TORO_RAISE_TIME_FOR_BALL_DROP));
     }
 
     /**
