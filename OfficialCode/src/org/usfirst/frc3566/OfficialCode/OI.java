@@ -9,7 +9,7 @@
 // it from being updated in the future.
 package org.usfirst.frc3566.OfficialCode;
 import org.usfirst.frc3566.OfficialCode.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.*;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 /**

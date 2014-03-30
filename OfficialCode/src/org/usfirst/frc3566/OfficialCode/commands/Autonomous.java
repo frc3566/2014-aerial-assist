@@ -72,18 +72,22 @@ public class Autonomous extends CommandGroup {
         // arm.
         startTime = System.currentTimeMillis();
 
-        if (numberOfBalls == 2) {
-            twoBallSequence();
-        } else {
+        switch(numberOfBalls) {
+            case 0:
+                movementOnlySequence();
+                break;
+            case 2:
+                twoBallSequence();
+                break;
+            case 1:
+            default:
             if (Robot.vision.hotTarget()) {
                 hotTargetSequence();
             } else {
                 coldTargetSequence();
             }
-            // clear these fields on the dashboard for clarity
-            SmartDashboard.putString(PICKUP, "N/A");
-            SmartDashboard.putString(RELOAD, "N/A");
-            SmartDashboard.putString(BALL2, "N/A");
+            break;
+                
         }
     }
 
@@ -131,6 +135,14 @@ public class Autonomous extends CommandGroup {
         addSequential(new Pause(RobotConstants.AUTONOMOUS_WAIT_FOR_COLD_GOAL_TO_BECOME_HOT));
         SmartDashboard.putString(BALL1, timestamp());
         addSequential(new FireCatapult());
+    }
+    
+    /**
+     * Drive into the Blue zone for five points.
+     */
+    private void movementOnlySequence() {
+        SmartDashboard.putString(START, "MOVEMENT @ " + timestamp());
+        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL));
     }
     
     /**
