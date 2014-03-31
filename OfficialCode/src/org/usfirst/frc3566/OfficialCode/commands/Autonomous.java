@@ -142,7 +142,8 @@ public class Autonomous extends CommandGroup {
      */
     private void movementOnlySequence() {
         SmartDashboard.putString(START, "MOVEMENT @ " + timestamp());
-        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL, RobotConstants.AUTONOMOUS_DISTANCE_TO_DRIVE_AT_GOAL));
+        addSequential(new Pause(5));
+        addSequential(new Drive(RobotConstants.AUTONOMOUS_SPEED_TO_DRIVE_AT_GOAL, RobotConstants.AUTONOMOUS_MOVEMENT_ONLY_DISTANCE));
     }
     
     /**
