@@ -26,6 +26,7 @@ public class EngageDogbox extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
         this.setTimeout(0.5);
+        Robot.catapult.wind();
         Robot.dogbox.engage();
     }
     // Called repeatedly when this Command is scheduled to run
